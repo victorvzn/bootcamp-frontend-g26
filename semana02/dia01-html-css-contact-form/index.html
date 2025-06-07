@@ -13,17 +13,19 @@
     <h1>Contact Us</h1>
 
     <form>
-      <label>
-        First Name
-        <input type="text" />
-        <span>This field is required</span>
-      </label>
+      <div class="row">
+        <label>
+          First Name
+          <input type="text" />
+          <span>This field is required</span>
+        </label>
 
-      <label>
-        Last Name
-        <input type="text" />
-        <span>This field is required</span>
-      </label>
+        <label>
+          Last Name
+          <input type="text" />
+          <span>This field is required</span>
+        </label>
+      </div>
 
       <label>
         Email Address
@@ -31,18 +33,20 @@
         <span>This field is required</span>
       </label>
 
-      <label>
-        <input type="radio" />
-        Query Type
-      </label>
+      <div class="row options">
+        <label>
+          <input type="radio" name="options" />
+          Query Type
+        </label>
+
+        <label>
+          <input type="radio" name="options" />
+          Support Request
+        </label>
+      </div>
 
       <label>
-        <input type="radio" />
-        Support Request
-      </label>
-
-      <label>
-        Message
+        Message 
         <textarea rows="5"></textarea>
         <span>This field is required</span>
       </label>
