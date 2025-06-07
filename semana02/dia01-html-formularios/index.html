@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formularios</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+  >
 </head>
 
 <body>
@@ -39,7 +43,7 @@
 
       <label>
         Input tipo range (edad)
-        <input type="range" name="range_edad" min="18" max="65" step="10" value="70" />
+        <input type="range" name="range_edad" min="18" max="65" step="10" value="30" />
       </label>
 
       <label>
@@ -113,7 +117,7 @@
       <h2>Textarea</h2>
 
       <label>
-        <textarea placeholder="Escribe una descripción sobre ti..." rows="5" cols="4" name="biografia"></textarea>
+        <textarea placeholder="Escribe una descripción sobre ti..." rows="10" cols="4" name="biografia"></textarea>
       </label>
 
       <label>
@@ -204,7 +208,7 @@
 
       <label>
         Nombre (obligatorio)
-        <input type="text" name="nombre" required minlength="3" maxlength="15" />
+        <input type="text" name="nombre" required minlength="2" maxlength="15" />
       </label>
 
       <label>
