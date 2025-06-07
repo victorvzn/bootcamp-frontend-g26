@@ -27,4 +27,34 @@ body {
 .contact-form h1 {
   margin: 0;
   margin-bottom: 32px; /* Espacio fuera de la caja */
+  color: hsl(187, 24%, 22%);
+}
+
+.contact-form form {
+  border: 1px solid red;
+}
+
+.contact-form label {
+  /* border: 1px solid blue; */
+
+  display: block;
+  margin-bottom: 16px;
+}
+
+label input[type=text],
+label input[type=email],
+label textarea {
+  display: flex;
+
+  margin-top: 8px;
+
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid hsl(186, 15%, 59%);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+label span {
+  display: none;
 }
