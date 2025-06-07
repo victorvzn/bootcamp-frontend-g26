@@ -5,4 +5,19 @@ body {
   font-size: 16px;
   
   background-color: hsl(148, 38%, 91%);
+
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  border: 1px solid red;
+
+  width: 400px;
+  /* background-color: hsl(0, 0%, 100%); */
+  /* background-color: white; */
+  background-color: #ffffff; /* White */
 }
