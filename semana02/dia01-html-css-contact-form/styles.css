@@ -14,10 +14,17 @@ body {
 }
 
 .contact-form {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   width: 400px;
   /* background-color: hsl(0, 0%, 100%); */
   /* background-color: white; */
   background-color: #ffffff; /* White */
+  padding: 32px; /* Espacio dentro de la caja */
+  border-radius: 16px;
+}
+
+.contact-form h1 {
+  margin: 0;
+  margin-bottom: 32px; /* Espacio fuera de la caja */
 }
