@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
+  <main class="contact-form">
     <h1>Contact Us</h1>
 
     <form>
@@ -23,22 +23,34 @@
         <span>This field is required</span>
       </label>
 
-      Email Address
-      Please enter a valid email address
-      This field is required
+      <label>
+        Email Address
+        <input type="text" />
+        <span>This field is required</span>
+      </label>
 
-      Query Type
-      General Enquiry
-      Support Request
-      Please select a query type
+      <label>
+        <input type="radio" />
+        Query Type
+      </label>
 
-      Message
-      This field is required
+      <label>
+        <input type="radio" />
+        Support Request
+      </label>
 
-      I consent to being contacted by the team
-      To submit this form, please consent to being contacted
+      <label>
+        Message
+        <textarea rows="5"></textarea>
+        <span>This field is required</span>
+      </label>
 
-      Submit
+      <label>
+        <input type="checkbox" />
+        I consent to being contacted by the team
+      </label>
+
+      <input type="submit" />
     </form>
   </main>
 </body>
