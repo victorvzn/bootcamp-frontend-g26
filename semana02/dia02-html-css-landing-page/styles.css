@@ -7,11 +7,16 @@ font-family: "Open Sans", sans-serif;
 
 /* GENERAL STYLES */
 
+html { /* ROOT */
+  font-size: 14px;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
 
   background-color: hsl(217, 28%, 15%);
+
+  color: hsl(0, 0%, 100%);
 }
 
 a {
@@ -34,21 +39,26 @@ a {
 /* HEADER SECTION */
 
 .header {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 42px; /* 14px * 3 = 42px */
   margin: 0 auto; /* 0 auto 0 auto */
 }
 
 .header__nav {
   display: flex;
-  gap: 42px;
+  gap: 3rem; /* 3rem = 14px x 3 */
 }
 
 /* .header__nav a {
   color: red;
 } */
+
+/* HERO SECTION */
+
+.hero {
+  border: 1px solid yellow;
+}
