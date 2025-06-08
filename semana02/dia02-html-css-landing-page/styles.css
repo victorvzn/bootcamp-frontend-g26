@@ -70,3 +70,33 @@ a {
   padding-top: 3rem;
   padding-bottom: 12rem;
 }
+
+.hero__title {
+  border: 1px solid blue;
+
+  width: 720px;
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 2.9em;
+  text-align: center;
+}
+
+.hero__text {
+  border: 1px solid orange;
+
+  width: 600px;
+
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.hero__button {
+  border: none;
+  border-radius: 7rem;
+  padding: 1rem 1.5rem;
+  min-width: 220px;
+  color: hsl(0, 0%, 100%);
+  background-color: blue;
+}
