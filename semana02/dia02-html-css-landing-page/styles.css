@@ -113,3 +113,44 @@ a {
   /* TODO: Aplicar el degradado en el botón */
   background-color: blue;
 }
+
+/* FEATURES SECTION */
+
+.features {
+  /* border: 1px solid red; */
+
+  background-color: hsl(218, 28%, 13%);
+
+  display: grid;
+  grid-template-columns: 340px 340px;
+  gap: 5rem; /* 14px * 5 = 70px */
+  justify-content: center;
+}
+
+.feature {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature__image {
+  height: 68px;
+}
+
+.feature__title {
+  font-family: "Raleway", sans-serif;
+}
+
+.feature__text {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+
+/* TODO: COLLABORATION SECTION - Maquetar y aplicar estilos en esta sección */
+
+.collaboration {
+  border: 1px solid red;
+}
