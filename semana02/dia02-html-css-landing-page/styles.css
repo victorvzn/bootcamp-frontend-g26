@@ -14,12 +14,21 @@ body {
   background-color: hsl(217, 28%, 15%);
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* UTILS */
+
 .hidden {
   display: none;
 }
 
 .wrapper {
   width: 1000px;
+
+  /* TODO: Adaptar el ancho de la págin a dispositivos móviles */
 }
 
 /* HEADER SECTION */
@@ -34,3 +43,12 @@ body {
   margin-top: 42px; /* 14px * 3 = 42px */
   margin: 0 auto; /* 0 auto 0 auto */
 }
+
+.header__nav {
+  display: flex;
+  gap: 42px;
+}
+
+/* .header__nav a {
+  color: red;
+} */
