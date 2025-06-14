@@ -5,6 +5,15 @@ font-family: "Raleway", sans-serif;
 font-family: "Open Sans", sans-serif;
 */
 
+/*
+TAMAÑOS DE PANTALLA SUGERIDOS:
+
+576px  -> pantallas pequeñas (celulares)
+768px  -> pantallas pequeñas (tablets y celulares)
+992px  -> pantallas medianas (Desktop)
+1200px -> pantallas grandes (Desktops, TVs)
+*/
+
 /* GENERAL STYLES */
 
 * { /* Selector Universal */
@@ -37,9 +46,11 @@ a {
 }
 
 .wrapper {
-  width: 1000px;
+  /* width: 1000px; */
 
-  /* TODO: Adaptar el ancho de la págin a dispositivos móviles */
+  /* TODO: Adaptar el ancho de la página dispositivos móviles */
+  /* width: min(ANCHO MIN, ANCHO MAX); */
+  width: min(100% - 3rem, 1440px);
 }
 
 /* HEADER SECTION */
