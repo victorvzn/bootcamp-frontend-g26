@@ -6,12 +6,14 @@
   <title>E-commerce :: Product Page</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
-    <div>
-      <img src="./images/logo.svg" />
+<body> 
+  <!-- BEM -> BLOCK, ELEMENT,MODIFIER -->
 
-      <nav>
+  <header class="header wrapper">
+    <div class="header__wrapper">
+      <img class="header__logo" src="./images/logo.svg" />
+
+      <nav class="header__links">
         <a href="">Collections</a>
         <a href="">Men</a>
         <a href="">Women</a>
@@ -20,7 +22,7 @@
       </nav>
     </div>
 
-    <div>
+    <div class="header__icons">
       <img src="./images/icon-cart.svg" />
       <img src="./images/image-avatar.png" width="32" height="32" />
     </div>

@@ -1,6 +1,40 @@
-body {
-  background-color: cadetblue;
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
+
+html {
+  font-size: 16px; /* VALOR POR DEFECTO */
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+img {
+  /* RWD para imágenes */
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* UTILS */
+
+.wrapper {
+  width: min(100%, 1200px);
+
+  margin: 0 auto;
+}
+
+/* HEADER SECTION */
 
 header {
   display: flex;
