@@ -123,12 +123,14 @@ a {
     hsl(198, 60%, 50%) 100%
   );
 
-  transition: all 1s ease; 
+  transition: all 1s ease;
 }
 
 .hero__button:hover {
   background: hsl(198, 60%, 50%) 85%;
   padding: 1rem 1.5rem;
+  cursor: pointer;
+  
 }
 
 /* FEATURES SECTION */
