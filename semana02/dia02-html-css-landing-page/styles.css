@@ -381,6 +381,8 @@ img {
 /* FOOTER SECTION  */
 
 .footer {
+  border: 1px solid yellow;
+
   position: relative;
 
   background-color: hsl(216, 53%, 9%);
