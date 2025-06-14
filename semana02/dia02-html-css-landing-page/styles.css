@@ -76,6 +76,11 @@ a {
 
   padding-top: 3rem;
   padding-bottom: 12rem;
+
+  background-image: url(./images/bg-curvy-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
 }
 
 .hero__image {
