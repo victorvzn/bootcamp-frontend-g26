@@ -111,7 +111,12 @@ a {
   color: hsl(0, 0%, 100%);
 
   /* TODO: Aplicar el degradado en el botón */
-  background-color: blue;
+  /* linear-gradient(GRADOS, COLOR1, COLOR2) */
+  background: linear-gradient(
+    90deg,
+    hsl(176, 68%, 64%) 0%,
+    hsl(198, 60%, 50%) 100%
+  );
 }
 
 /* FEATURES SECTION */
