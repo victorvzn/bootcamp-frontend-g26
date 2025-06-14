@@ -37,7 +37,38 @@ a {
 /* HEADER SECTION */
 
 header {
-  display: flex;
+  /* border: 1px solid red; */
 
+  height: 4.5rem; /* 72px / 16px */
+
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid hsl(223, 64%, 98%);
+  padding: 1.5rem 1rem;
 }
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header__links {
+  font-size: .9rem;
+
+  display: flex;
+  gap: 1rem;
+
+  color: hsl(219, 9%, 45%);
+}
+
+.header__icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* PRODUCT DETAIL SECTION */
+
