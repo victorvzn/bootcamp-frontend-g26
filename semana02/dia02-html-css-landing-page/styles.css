@@ -122,6 +122,13 @@ a {
     hsl(176, 68%, 64%) 0%,
     hsl(198, 60%, 50%) 100%
   );
+
+  transition: all 1s ease; 
+}
+
+.hero__button:hover {
+  background: hsl(198, 60%, 50%) 85%;
+  padding: 1rem 1.5rem;
 }
 
 /* FEATURES SECTION */
