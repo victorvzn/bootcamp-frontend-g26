@@ -39,6 +39,12 @@ a {
   text-decoration: none;
 }
 
+img {
+  /* TODO: RWD(Responsive Web Design) para imágenes */
+  max-width: 100%;
+  height: auto;
+}
+
 /* UTILS */
 
 .hidden {
@@ -101,7 +107,9 @@ a {
 .hero__title {
   /* border: 1px solid blue; */
 
-  width: 720px;
+  /* width: 720px; */
+  /* width: min(100%, 720px); */
+  width: min(100% - 3rem, 720px);
 
   font-family: "Raleway", sans-serif;
   font-weight: 700;
@@ -112,7 +120,8 @@ a {
 .hero__text {
   /* border: 1px solid orange; */
 
-  width: 600px;
+  /* width: 600px; */
+  width: min(100% - 3rem, 600px);
 
   font-weight: 400;
   font-size: 1.2rem;
@@ -157,9 +166,16 @@ a {
   background-color: hsl(218, 28%, 13%);
 
   display: grid;
-  grid-template-columns: 340px 340px;
+  grid-template-columns: 340px; /* MOBILE FIRST */
   gap: 5rem; /* 14px * 5 = 70px */
   justify-content: center;
+}
+
+/* MEDIA QUERY: Se aplica a dispositivos móviles, tablets o desktops */
+@media (min-width: 1200px) {
+  .features {
+    grid-template-columns: 340px 340px;
+  }
 }
 
 .feature {
@@ -187,7 +203,7 @@ a {
 /* TODO: COLLABORATION SECTION - Maquetar y aplicar estilos en esta sección */
 
 .collaboration {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: flex;
   justify-content: center;
@@ -195,6 +211,12 @@ a {
   gap: 4rem; /* 4rem = 4 * 14px = 66px */
 
   padding-top: 8rem;
+}
+
+/* TODO: Usar media queries para adaptar la sección collaboration a dispositivos móviles, tablets o desktops */
+
+@media(/* ???? */) {
+  /* ESTILOS AQUI */
 }
 
 .how_works {
