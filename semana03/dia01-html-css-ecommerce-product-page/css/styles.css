@@ -2,7 +2,7 @@
 
 /* CUSTOM PROPERTIES <> VARIABLE / CONSTANTES */
 
-:root {
+:root { /* pseudo-class */
   --fondo: orange; /* background-color: var(--fondo); */
 
   /* FONTS */
@@ -93,7 +93,7 @@ header {
 .header__icons {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1rem; /* 16px */
 }
 
 /* PRODUCT DETAIL SECTION */
