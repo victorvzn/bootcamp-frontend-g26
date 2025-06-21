@@ -147,7 +147,7 @@ header {
 /* TODO: Terminar la sección de producto */
 
 .product {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .product__subtitle {
@@ -208,10 +208,44 @@ header {
 }
 
 .product__form {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
 }
 
 .product__quantity {
+  display: flex;
+  /* background-color: red; */
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.product__quantity button,
+.product__quantity span {
+  border: none;
+
+  width: 3rem;
+  height: 3rem;
+
+  background-color: var(--neutral-light-grayish-blue);
+}
+
+.product__quantity span {
+  font-weight: var(--font-weight-bold);
+  font-size: 1.3rem;
+  text-align: center;
+  line-height: 2.2;
+}
+
+.product__quantity button {
+  cursor: pointer;
+}
+
+.product__quantity button:hover {
+  background-color: var(--neutral-grayish-blue);
 }
 
 .product__add-to-cart {
+  /* TODO: Terminar los estilos del botón 'Add to cart' */
 }
