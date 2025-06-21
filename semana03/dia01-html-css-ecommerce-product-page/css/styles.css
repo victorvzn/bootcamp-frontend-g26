@@ -197,7 +197,7 @@ header {
 }
 
 .product__price {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: flex;
   flex-direction: row;
@@ -214,7 +214,7 @@ header {
   .product__price {
     flex-direction: column;
 
-    
+    align-items: flex-start;
   }
 }
 
@@ -244,9 +244,16 @@ header {
 
 .product__form {
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   align-items: center;
   margin-bottom: 4rem;
+}
+
+@media (min-width: 1200px) {
+  .product__form {
+    flex-direction: row;
+  }
 }
 
 .product__quantity {
@@ -254,6 +261,8 @@ header {
   /* background-color: red; */
   border-radius: .5rem;
   overflow: hidden;
+
+  width: 100%;
 }
 
 .product__quantity button,
@@ -272,7 +281,8 @@ header {
   text-align: center;
   line-height: 2.2;
 
-  width: 10rem;
+  /* width: 10rem; */
+  width: 100%;
 }
 
 .product__quantity button {
