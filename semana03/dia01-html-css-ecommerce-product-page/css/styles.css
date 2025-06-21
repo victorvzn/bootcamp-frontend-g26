@@ -81,6 +81,18 @@ header {
   gap: 2rem;
 }
 
+.header__menu {
+  background-color: var(--neutral-light-grayish-blue);
+  padding: .5rem;
+  border-radius: .3rem;
+}
+
+@media (min-width: 1200px) {
+  .header__menu {
+    display: none;
+  }
+}
+
 .header__links {
   font-size: .9rem;
   
