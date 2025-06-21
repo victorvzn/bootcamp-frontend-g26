@@ -81,10 +81,30 @@ header {
   gap: 2rem;
 }
 
-.header__menu {
+/* .header__menu {
   background-color: var(--neutral-light-grayish-blue);
   padding: .5rem;
   border-radius: .3rem;
+} */
+
+.header__menu-checkbox {
+  display: none;
+}
+
+.header__links--menu {
+  opacity: 0;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+
+  background-color: red;
+}
+
+input[type=checkbox]:checked ~ .header__links--menu {
+  opacity: 1;
 }
 
 @media (min-width: 1200px) {
@@ -96,7 +116,6 @@ header {
 .header__links {
   font-size: .9rem;
   
-  display: none;
   gap: 1rem;
 
   color: var(--neutral-dark-grayish-blue);
