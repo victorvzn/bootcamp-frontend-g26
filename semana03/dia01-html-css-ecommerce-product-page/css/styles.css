@@ -236,6 +236,8 @@ header {
   font-size: 1.3rem;
   text-align: center;
   line-height: 2.2;
+
+  width: 10rem;
 }
 
 .product__quantity button {
@@ -248,4 +250,31 @@ header {
 
 .product__add-to-cart {
   /* TODO: Terminar los estilos del botón 'Add to cart' */
+  border: 0;
+
+  background-color: var(--primary-orange);
+  padding: 1rem;
+  height: 3rem;
+
+  border-radius: .5rem;
+  color: var(--neutral-very-dark-blue);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1rem;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+}
+
+.product__add-to-cart svg path {
+  fill: var(--neutral-very-dark-blue);
+}
+
+.product__add-to-cart:hover {
+  background-color: var(--primary-orange);
+  opacity: .8;
 }
