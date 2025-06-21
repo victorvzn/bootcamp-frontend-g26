@@ -83,11 +83,17 @@ header {
 
 .header__links {
   font-size: .9rem;
-
-  display: flex;
+  
+  display: none;
   gap: 1rem;
 
   color: var(--neutral-dark-grayish-blue);
+}
+
+@media (min-width: 1200px) {
+  .header__links {
+    display: flex;
+  }
 }
 
 .header__icons {
@@ -102,12 +108,18 @@ header {
   /* border: 1px solid red; */
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 2rem; /* 16px x 2 = 32px */
 
   padding: 3rem; /* TOP, RIGHT, BOTTOM, LEFT */
   padding: 3rem 3rem; /* (TOP, BOTTOM)  (LEFT,RIGHT) */
+}
+
+@media (min-width: 1200px) {
+  .product-detail {
+    flex-direction: row;
+  }
 }
 
 .gallery {
@@ -125,7 +137,13 @@ header {
 .gallery__slider {
   display: flex;
   justify-content: space-between;
+
+  border: 1px solid red;
 }
+
+/* TODO: Debemos ocultar la galeria solo en dispositivos móviles */
+
+
 
 .gallery__slider img {
   border-radius: .5rem;
