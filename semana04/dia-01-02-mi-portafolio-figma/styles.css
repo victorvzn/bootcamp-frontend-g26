@@ -109,3 +109,121 @@ a {
   gap: 1rem;
 }
 
+/* ---- ESTUDIAR ESTA PARTE ---- */
+
+/* HERO */
+
+.hero {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 4rem;
+}
+
+.hero--bg {
+  background-image: url(./images/bg.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+.hero__gretting {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+}
+
+.hero__gretting span {
+  color: var(--primary-color-gold);
+  /* border-bottom: 3px solid var(--primary-color-gold); */
+  text-decoration: underline;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+}
+
+.hero__description {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-regular);
+  text-transform: capitalize;
+}
+
+.hero__photo {
+  border-radius: 50%;
+}
+
+.stack {
+  /* border: 1px solid yellow; */
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stack {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.stack__title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stack__wrap {
+  /* border: 1px solid blue; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stack__box {
+  /* border: 1px solid orange; */
+  width: 7rem;
+  height: 7rem;
+
+  background-color: var(--primary-color-blue2);
+  border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 3rem;
+  height: 372px;
+}
+
+.footer--bg {
+  background-image: url(./images/bg.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+
+.footer__logo {
+  color: var(--primary-color-gold);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.footer__copy {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-semibold);
+  padding-bottom: 10rem;
+}
