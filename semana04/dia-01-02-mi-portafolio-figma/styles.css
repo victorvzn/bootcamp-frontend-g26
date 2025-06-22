@@ -19,8 +19,40 @@
 
 /* GENERAL */
 
+* {
+  /* border: 1px solid red; */
+
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: var(--font-size); /* 1rem = 16px */
+}
+
 body {
   font-family: var(--font-primary);
 
-  background-color: bisque;
+  background-color: var(--primary-color-blue2);
+
+  color: var(--primary-color-white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* UTILS */
+
+.wrapper {
+  width: min(100% - 2rem, 1220px);
+
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+  border: 1px solid red;
 }
