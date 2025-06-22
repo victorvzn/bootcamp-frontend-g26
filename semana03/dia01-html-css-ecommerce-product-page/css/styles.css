@@ -210,7 +210,7 @@ input[type=checkbox]:checked ~ .header__links--menu {
   right: 30px;
 }
 
-
+/* TODO: Ocultar los botones next y prev en dispositivos desktop */
 
 .gallery__slider {
   display: none;
