@@ -111,7 +111,6 @@ header {
 
 input[type=checkbox]:checked ~ .header__links--menu {
   opacity: 1;
-  display: block;
   left: 0px;
 }
 
