@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*
+TAMAÑOS DE PANTALLA SUGERIDOS:
+
+576px  -> pantallas pequeñas (celulares)
+768px  -> pantallas pequeñas (tablets y celulares)
+992px  -> pantallas medianas (Desktop)
+1200px -> pantallas grandes (Desktops, TVs)
+*/
+
 :root {
   /* FONTS */
 
@@ -56,17 +65,47 @@ a {
 .header {
   /* TODO: Avanzar con los estilos del header */
 
-  border: 1px solid red;
+  /* border: 1px solid red; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 0;
 }
 
 .header__logo {
-
+  color: var(--primary-color-gold);
+  font-weight: var(--font-weight-bold);
+  font-size: 2rem; /* 2 x 16px */
 }
 
 .header__menu {
+  display: none;
+}
 
+@media (min-width: 768px) {
+  .header__menu {
+    display: flex;
+    gap: 1.5rem; /* 1.5rem x 16px = 24px */
+  }
+}
+
+.header__menu {
+  font-weight: var(--font-weight-bold);
+  font-size: 1.125rem; /* 1.125rem x 16px = 18px */
+  text-transform: capitalize;
+}
+
+.header__menu--active,
+.header__menu a:hover {
+  color: var(--primary-color-gold);
+  border-bottom: 2px solid var(--primary-color-gold);
 }
 
 .header__links {
-  
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
+
