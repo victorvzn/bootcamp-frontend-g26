@@ -43,7 +43,9 @@ const listaDeNombres = ['Victor', 'Alessandro', 'Francesca', 'Yesica']
 console.log(listaDeNombres)
 
 listaDeNombres.push('Javascript')
-listaDeNombres.push('CSS')
+listaDeNombres.push(1234)
+listaDeNombres.push(false)
+listaDeNombres.push([9, 8, 7])
 
 console.log(listaDeNombres)
 
@@ -76,7 +78,8 @@ console.log('bienvenido'.length)
 
 console.log(listaDeNombres[listaDeNombres.length - 1])
 console.log(listaDeNombres.at(0))
-console.log(listaDeNombres.at(-2))
+console.log(listaDeNombres[0])
+console.log(listaDeNombres.at(-2)) // Extrae el penúltimo elemento
 
 // DOC: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
