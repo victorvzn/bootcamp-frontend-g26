@@ -244,3 +244,55 @@ switch (heroe) {
     console.log('No soy un heroe 😒')
 }
 
+// ESTRUCTURAS REPETITIVAS
+
+// FOR (Sirve para repetir una o varias instrucciones)
+
+for(let i = 0; i < 10; i++) {
+  console.log('for', i)
+}
+
+// WHILE
+
+let j = 0
+
+while (j < 10) {
+  console.log('while', j)
+  // j = j + 1
+  j++
+}
+
+// DO WHILE
+
+let k = 0
+
+do {
+  console.log('do while', k)
+  k = k + 1
+  // k++
+} while (k < 10)
+
+// EJERCICIOS
+
+// 1. Determinar si la edad de una persona es mayor o menor de edad mostrando 'Mayor de edad' o 'Menor de edad' según corresponda.
+
+const edadPersona = 15
+
+if (edadPersona >= 18) {
+  console.log('Mayor de edad')
+} else {
+  console.log('Menor de edad')
+}
+
+// 2. Retornar un saludo en tres diferentes lenguajes:
+//    - si es español mostrará 'Hola'
+//    - si es inglés mostrará 'Hello'
+//    - si es aimara mostrará 'kamisaraki'
+// 3. Si un numero es divisible entre 3 y 5 devolver 'fizzbuzz'
+//    Si un numero es divisible entre 3 devolver 'fizz'
+//    Si un numero es divisible entre 5 devolver 'buzz'
+//    De lo contrario devolver el mismo número
+// 4. Retornar true si un numero es primo sino devolver false
+//    Pista: un numero primo es divisible por sí mismo y por 1
+// 5. Devolver un valor que se incremente de dos en dos y devuelva los menores a 10
+
