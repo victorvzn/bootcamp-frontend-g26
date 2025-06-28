@@ -22,3 +22,16 @@ console.log(listaDeValores[0]) // 1
 console.log(listaDeValores[4]) // Villazón
 console.log(listaDeValores[5]) // true
 console.log(listaDeValores[99]) // undefined
+
+// Escritura en un arreglo
+
+console.log(listaDeValores)
+
+listaDeValores[0] = 'Juan'
+listaDeValores[3] = 9999
+
+console.log(listaDeValores)
+
+listaDeNumeros[0] = 'Hola'
+
+console.log(listaDeNumeros)
