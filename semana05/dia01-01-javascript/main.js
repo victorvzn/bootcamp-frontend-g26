@@ -31,7 +31,6 @@ console.log(nombre) // Victor
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 
-
 // NUMBER
 
 console.log(20)
@@ -76,3 +75,4 @@ console.log(typeof lastName)
 // BIGINT -> Permite almacenar números muy grandes.
 // SYMBOL -> Ayudan a crear valores únicos e irrepetibles.
 
+// NOTA: typeof devuelve el tipo de dato de una variable o valor
