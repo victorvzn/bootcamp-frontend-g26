@@ -156,3 +156,91 @@ console.log(cadena1.length === cadena2.length)
 // 8. (TODO) Almacenar en una constante un monto de dinero, luego mostrar cuanto le toca a cada socio según la siguiente tabla:
 // SOCIO A = 30%, SOCIO B = 20%, SOCIO C = 60%
 
+// Scope (Ámbito)
+
+// Define donde una variable existe.
+// Tenemos dos tipos: Global(Fuera de las funciones) y Local (Dentro de funciones o bloques de código)
+
+let global = 'VARIABLE GLOBAL'
+
+function prueba() {
+  let local = 'VARIABLE LOCAL'
+
+  console.log('IMPRIMIENDO DESDE UN BLOQUE:', local)
+}
+
+console.log(global)
+// console.log(local) // ❌ Uncaught ReferenceError: local is not defined
+prueba()
+
+
+// CONDICIONALES (IF)
+
+if (true) {
+  // El bloque que se ejecuta si la condición es verdadera (true)
+}
+
+const numero = 33
+
+const esPar = numero % 2 === 0 // boolean
+
+if (esPar) {
+  console.log('>>> Este número es par', numero)
+}
+
+// CONDICIONALES (IF, ELSE)
+
+if (true) {
+  // Se ejecuta este bloque si la condición es verdadera
+} else {
+  // Se ejecuta este bloque si la condición es falsa
+}
+
+if (esPar) { // true, 1, 'hola'
+  console.log('Este número es par', numero)
+} else {
+  console.log('Este número es impar', numero)
+}
+
+// CONDICIONALES (IF, ELSE IF, ELSE)
+
+if (false) {
+  // Se ejecuta este bloque si la condición es verdadera
+} else if (false) {
+  // Se ejecuta este bloque si la condición es verdadera
+} else if (false) {
+  // Se ejecuta este bloque si la condición es verdadera
+} else {
+  // Se ejecuta este bloque si ninguna condición se cumple
+}
+
+let heroe = 'Spiderman'
+
+if (heroe === 'Batman') {
+  console.log('Hola soy Bruce')
+} else if (heroe === 'Spiderman') {
+  console.log('Hola soy Peter')
+} else if (heroe === 'Ironman') {
+  console.log('Hola soy Tony')
+} else {
+  console.log('No soy un heroe 😒')
+}
+
+// CONDICIONALES (SWITCH)
+
+heroe = 'Ironman'
+
+switch (heroe) {
+  case 'Batman':
+    console.log('Hola soy Bruce')
+    break
+  case 'Spiderman':
+    console.log('Hola soy Peter')
+    break
+  case 'Ironman':
+    console.log('Hola soy Tony')
+    break
+  default:
+    console.log('No soy un heroe 😒')
+}
+
