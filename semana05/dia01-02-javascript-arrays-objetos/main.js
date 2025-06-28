@@ -99,11 +99,13 @@ console.log(languages.includes('cobol')) // false
 
 console.log('HOLA'.toLowerCase())
 
-const resultado = languages.filter(function (item) {
-  // return language === 'java'
-  // return item === 'python'
-  return item.toLowerCase().includes('c')
-})
+const resultado = languages.filter(
+  function (item) {
+    // return item === 'java'
+    // return item === 'python'
+    return item.toLowerCase().includes('c')
+  }
+)
 
 console.log(resultado)
 
