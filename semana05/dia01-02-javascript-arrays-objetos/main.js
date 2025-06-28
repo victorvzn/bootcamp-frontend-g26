@@ -84,3 +84,74 @@ console.log(listaDeNombres.at(-2)) // Extrae el penúltimo elemento
 // DOC: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
 // TODO: Otras funciones: slice (Investiguen)
+
+
+// MÉTODOS DE ARREGLOS
+
+// Método INCLUDES, nos indica si el valor que se pasa como parámetro se encuentra en el arreglo y siempre devuelve un boolean (true o false)
+
+const languages = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
+
+console.log(languages.includes('java')) // true
+console.log(languages.includes('cobol')) // false
+
+// Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un boolean (true o false)
+
+console.log('HOLA'.toLowerCase())
+
+const resultado = languages.filter(function (item) {
+  // return language === 'java'
+  // return item === 'python'
+  return item.toLowerCase().includes('c')
+})
+
+console.log(resultado)
+
+// Método MAP, evalue un arreglo y lo modifica y hay que pasarle una función
+
+const nombresConTitulo = languages.map(function (language) {
+  // return 'hola'
+  return '*' + language + '*'
+})
+
+console.log(nombresConTitulo)
+console.log(languages)
+
+// Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original.
+
+const ordenandoLanguages = [...languages].sort() // Mutando el arreglo original
+
+console.log(ordenandoLanguages)
+console.log(languages)
+
+// Método FOREACH, nos ayuda a recorrer un arreglo sin tener ningun retorno de datos
+
+const miArreglo = []
+
+languages.forEach(function (language) {
+  miArreglo.push('El mejor: ' + language)
+})
+
+console.log(miArreglo)
+
+// Método REDUCE, nos ayuda a acumular los valores de un arreglo
+
+const numeros = [3, 40, 100, 7, 50]
+
+// Con un FOR
+let suma = 0
+for (let i = 0; i < numeros.length; i++) {
+  suma = suma + numeros[i]
+}
+console.log(suma)
+
+// Con Reduce
+
+const sumatoria = numeros.reduce(
+  function(acumulador, valorActual) {
+    return acumulador + valorActual
+  },
+  0
+)
+
+console.log(sumatoria)
