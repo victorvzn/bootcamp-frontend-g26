@@ -84,6 +84,10 @@ console.log(listaDeNombres.at(-2)) // Extrae el penúltimo elemento
 // DOC: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
 // TODO: Otras funciones: slice (Investiguen)
+// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+const nombres = ["Rita", "Pedro", "Miguel", "Ana", "Vanesa"];
+const masculinos = nombres.slice(1, 3); // Devolver una porción de un array existente
 
 
 // MÉTODOS DE ARREGLOS
