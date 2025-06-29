@@ -244,10 +244,12 @@ console.log(resultadoCursosAprobados[0]['nombre']) // Algoritmos
 
 console.log(miObjeto)
 // delete miObjeto.cursos
-delete miObjeto["mi edad"]
+delete miObjeto["mi edad"] // No es bueno para el rendimiento del objeto
 console.log(miObjeto)
 
-// INSERTAR UN NUEVA PROPIEDADE A UN OBJETO
+miObjeto.nombre = undefined // Con esto eliminamos el contenido de la clave
+
+// INSERTAR UN NUEVA PROPIEDAD A UN OBJETO
 
 miObjeto.platilloFavorito = 'Ceviche de Conchas Negras'
 miObjeto['juegos favoritos'] = ['Crash Team Racing', 'Mario', 'Minecraft']
@@ -355,6 +357,8 @@ if (!SUPER_HEROS[hero]) {
 }
 
 console.log(SUPER_HEROS[hero] ?? 'No soy un heroe 😉')
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
 
 
 // TODO: Desarrollar 1 reto del siguiente link para mañana
