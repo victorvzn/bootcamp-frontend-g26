@@ -22,7 +22,23 @@ console.log(contarVocales('Programación')) // → 5
 // Descripción: Elimina elementos duplicados de un array manteniendo el orden.
 
 function eliminarDuplicados(arr = []) {
-  return arr;
+    // VERSION 1
+  // const resultado = []
+  // for(const el of arr) {
+  //   if (!resultado.includes(el)) {
+  //     resultado.push(el)
+  //   }
+  // }
+  // return resultado;
+
+  // VERSION 2
+  // return arr.filter(function(item, index) {
+  //   return arr.indexOf(item) === index
+  // })
+
+  // VERSION 3
+
+  return [...new Set(arr)]
 }
 
 console.log('✅ Ejercicio 2')
