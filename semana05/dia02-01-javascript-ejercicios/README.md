@@ -59,7 +59,21 @@ Tenemos que crear una función que recibe el número de céntimos que hay que de
 */
 
 function getCoins(change) {
-  return []
+  return const coins = [50, 20, 10, 5, 2, 1]
+  
+  let acumulador = change
+  
+  return coins
+    .map(function(coin) {
+      let quotient = Math.floor(acumulador / coin)
+      
+      if (quotient > 0) {
+        acumulador = acumulador % coin // aquí solo acumulamos el residuo
+      }
+    
+      return quotient
+    })
+  .reverse()
 }
 
 getCoins(51) // [1, 0, 0, 0, 0, 1] -> una moneda de 1 céntimo y otra de 50 céntimos

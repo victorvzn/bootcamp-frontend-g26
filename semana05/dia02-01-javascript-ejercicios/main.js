@@ -20,16 +20,16 @@ console.log(contarVocales('Programación')) // → 5
 
 // Ejercicio 2: Eliminar duplicados
 // Descripción: Elimina elementos duplicados de un array manteniendo el orden.
-// Ejemplos:
-// eliminarDuplicados([1,2,2,3]) → [1,2,3]
-// eliminarDuplicados(['a', 'b', 'a']) → ['a','b']
-// eliminarDuplicados([]) → []
-// eliminarDuplicados([true, false, true]) → [true, false]
 
 function eliminarDuplicados(arr = []) {
   return arr;
 }
 
+console.log('✅ Ejercicio 2')
+console.log(eliminarDuplicados([1,2,2,3])) // → [1,2,3]
+console.log(eliminarDuplicados(['a', 'b', 'a'])) // → ['a','b']
+console.log(eliminarDuplicados([])) // → []
+console.log(eliminarDuplicados([true, false, true])) // → [true, false]
 
 // Ejercicio 3: Invertir texto
 // Descripción: Invierte una cadena de texto.
