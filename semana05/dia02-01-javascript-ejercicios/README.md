@@ -1,5 +1,7 @@
 # Javascript Ejercicios adicionales
 
+Usen [RunJS/play](https://runjs.app/play) para ejecutar el código.
+
 ### [Reto01 - Contando ovejas para dormir](https://2021.adventjs.dev/challenges/01)
 
 ```js
