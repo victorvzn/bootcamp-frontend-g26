@@ -1,10 +1,5 @@
 // Ejercicio 1: Contar vocales
 // Descripción: Retorna cuántas vocales contiene un texto dado, sin importar mayúsculas.
-// Ejemplos:
-// contarVocales('Hola Mundo') → 4
-// contarVocales('AEIOU') → 5
-// contarVocales('xyz') → 0
-// contarVocales('Programación') → 5
 
 function contarVocales(texto = '') {
   return 0;
