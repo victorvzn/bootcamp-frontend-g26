@@ -49,14 +49,17 @@ console.log(eliminarDuplicados([true, false, true])) // → [true, false]
 
 // Ejercicio 3: Invertir texto
 // Descripción: Invierte una cadena de texto.
-// Ejemplos:
-// invertirTexto('hola') → 'aloh'
-// invertirTexto('123') → '321'
-// invertirTexto('') → ''
 
 function invertirTexto(texto = '') {
-  return texto;
+  if (!texto) return ''
+  
+  return [...texto].reverse().join('');
 }
+
+console.log('Ejercicio 3')
+console.log(invertirTexto('hola')) // → 'aloh'
+console.log(invertirTexto('123')) // → '321'
+console.log(invertirTexto('')) // → ''
 
 
 // Ejercicio 4: Sumar array
