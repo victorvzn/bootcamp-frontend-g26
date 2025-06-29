@@ -4,7 +4,7 @@
 
 // ARRAYS
 
-// Lista de datos ordenados. Un arreglo tiene elementos de cualquier tipo de dato: cadena, números, boolean, null, arrays, objetos, etc.
+// Lista de datos ordenados. Un arreglo tiene elementos de cualquier tipo de dato: cadena, números, boolean, null, arrays, objetos, etc. Cada elemento del arreglo tiene un indice que representa su posición y siempre empieza por 0.
 
 // DECLARARACIÓN
 
@@ -16,7 +16,7 @@ console.log(arregloVacio)
 console.log(listaDeNumeros);
 console.log(listaDeValores)
 
-// Lectura de la elemento de un arreglo
+// Lectura de la elemento de un arreglo y debemos su indice
 
 console.log(listaDeValores[0]) // 1
 console.log(listaDeValores[4]) // Villazón
@@ -76,9 +76,9 @@ console.log('bienvenido'.length)
 
 // Obtener el último elemento el arreglo
 
-console.log(listaDeNombres[listaDeNombres.length - 1])
-console.log(listaDeNombres.at(0))
-console.log(listaDeNombres[0])
+console.log(listaDeNombres[listaDeNombres.length - 1]) // 1234
+console.log(listaDeNombres.at(0)) // Código
+console.log(listaDeNombres[0]) // Código
 console.log(listaDeNombres.at(-2)) // Extrae el penúltimo elemento
 
 // DOC: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
