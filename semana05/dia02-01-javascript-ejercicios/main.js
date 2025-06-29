@@ -56,7 +56,7 @@ function invertirTexto(texto = '') {
   return [...texto].reverse().join('');
 }
 
-console.log('Ejercicio 3')
+console.log('✅ Ejercicio 3')
 console.log(invertirTexto('hola')) // → 'aloh'
 console.log(invertirTexto('123')) // → '321'
 console.log(invertirTexto('')) // → ''
@@ -64,14 +64,20 @@ console.log(invertirTexto('')) // → ''
 
 // Ejercicio 4: Sumar array
 // Descripción: Retorna la suma total de todos los números en un array.
-// Ejemplos:
-// sumarArray([1,2,3]) → 6
-// sumarArray([]) → 0
-// sumarArray([-1, 1]) → 0
 
 function sumarArray(arr = []) {
-  return 0;
+  return arr.reduce(
+    function(accumulator, currentValue) {
+      return accumulator + currentValue
+    }, 0
+  );
 }
+
+console.log('✅ Ejercicio 4')
+console.log(sumarArray([1,2,3])) // → 6
+console.log(sumarArray([])) // → 0
+console.log(sumarArray([-1, 1])) // → 0
+console.log(sumarArray([25,69,14,100,2569])) // → 2777
 
 
 // Ejercicio 5: Celsius a fahrenheit
@@ -112,6 +118,7 @@ function elementosEnComun(arr1 = [], arr2 = []) {
 
 // Ejercicio 8: Mayor número
 // Descripción: Retorna el número más grande de un array de números.
+// Tip: usar la función Math.max
 // Ejemplos:
 // mayorNumero([1, 5, 3]) → 5
 // mayorNumero([-1, -5, -3]) → -1
