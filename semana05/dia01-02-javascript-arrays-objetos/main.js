@@ -99,7 +99,7 @@ const languages = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
 console.log(languages.includes('java')) // true
 console.log(languages.includes('cobol')) // false
 
-// Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un boolean (true o false)
+// Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un boolean (true o false). Siempre devuelve un nuevo arreglo.
 
 console.log('HOLA'.toLowerCase()) // hola
 
@@ -115,7 +115,7 @@ console.log(resultado)
 
 // const languages = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
 
-// Método MAP, evalue un arreglo, lo modifica y hay que pasarle una función
+// Método MAP, evalue un arreglo, lo modifica y hay que pasarle una función. La misma de cantidad de elemento que entra va a salir. Siempre devuelve un nuevo arreglo.
 
 const nombresConTitulo = languages.map(
   function (language) {
@@ -127,17 +127,22 @@ const nombresConTitulo = languages.map(
 console.log(nombresConTitulo)
 console.log(languages)
 
-// Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original.
+// Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original. Es recomendable toSorted(Investiguen)
 
-const ordenandoLanguages = [...languages].sort() // ORDENA ASC. Mutando el arreglo original
+const ordenandoLanguages = [...languages].sort() // ORDENA ASC. Mutando el arreglo original para evitar eso usamos el spread operator
 
 console.log(ordenandoLanguages)
 console.log(languages)
 
-const numeros2 = [11, 2, 1, 22, 86, 99, ]
+const numeros2 = [11, 2, 1, 22, 86, 99, 200]
 
-console.log(numeros2.sort(function(a, b) {
-  // return a - b // ORDENA ASC.
+console.log([...numeros2].sort()) // ❌ No ordena correctamente por que usa el ordenamiento como texto.
+
+console.log([...numeros2].sort(function(a, b) {
+  return a - b // ORDENA ASC.
+}))
+
+console.log([...numeros2].sort(function(a, b) {
   return b - a // ORDENA DESC.
 }))
 
@@ -146,7 +151,7 @@ console.log(numeros2.sort(function(a, b) {
 const miArreglo = []
 
 languages.forEach(function (language) {
-  miArreglo.push('El mejor: ' + language)
+  miArreglo.push('El mejor es ' + language)
 })
 
 console.log(miArreglo)
