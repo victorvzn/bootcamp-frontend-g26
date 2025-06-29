@@ -90,7 +90,7 @@ const nombres = ["Rita", "Pedro", "Miguel", "Ana", "Vanesa"];
 const masculinos = nombres.slice(1, 3); // Devolver una porción de un array existente
 
 
-// MÉTODOS DE ARREGLOS
+// MÉTODOS DE ARREGLOS (includes, filter, map, reduce, etc)
 
 // Método INCLUDES, nos indica si el valor que se pasa como parámetro se encuentra en el arreglo y siempre devuelve un boolean (true o false)
 
@@ -101,7 +101,7 @@ console.log(languages.includes('cobol')) // false
 
 // Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un boolean (true o false)
 
-console.log('HOLA'.toLowerCase())
+console.log('HOLA'.toLowerCase()) // hola
 
 const resultado = languages.filter(
   function (item) {
