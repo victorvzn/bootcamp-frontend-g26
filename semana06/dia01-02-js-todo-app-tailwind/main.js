@@ -16,14 +16,19 @@ taskAdd.addEventListener('click', function(event) {
   // button.textContent = 'Hola soy un botón!'
   // document.body.appendChild(button)
 
-  // TODO: 04 - Añadir el elemento checkbox al elemento li
-
   // 01 - Añadir el elemento li al elemento con la clase task__list
   const li = document.createElement('li')
+
+  // TODO: 04 - Añadir el elemento checkbox al elemento li
+  const inputCheckbox = document.createElement('input')
+  inputCheckbox.setAttribute('type', 'checkbox')
+  li.appendChild(inputCheckbox)
+
   // 02 - Añadir el elemento span al elemento li
   const span = document.createElement('span')
   span.textContent = taskInput.value
   li.appendChild(span)
+
   // 03 - Añadir el elemento button al elemento li
   const button = document.createElement('button')
   button.textContent = 'Borrar'
@@ -32,4 +37,11 @@ taskAdd.addEventListener('click', function(event) {
   console.log(li)
 
   taskList.appendChild(li)
+
+  taskInput.value = ''
 })
+
+// TODO: Permitir al botón borrar remover una tarea de la lista
+
+// 1. Añadir el evento click al botón de la lista
+// 2. Eliminar el elemento li que tiene el botón borrar
