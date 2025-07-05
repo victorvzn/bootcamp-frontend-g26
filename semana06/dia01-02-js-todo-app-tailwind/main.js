@@ -55,5 +55,10 @@ taskList.addEventListener('click', function(event) {
     target.parentElement.remove()
   }
 
-
+  // TODO: Al hacer click en el checkbox el texto de la tarea debe tacharse.
+  // Ayuda CSS: "text-decoration: line-through;"
+  if (target.tagName === 'INPUT' && target.type === 'checkbox') {
+    // Aquí target sería el checbox seleccionado
+    target.classList.toggle('completed') // toggle hace un intercambio de la clase completed
+  }
 })
