@@ -55,3 +55,31 @@ const otroSaludoEnMayusculas = (nombre='Anónimo') => {
 
 console.log(otroSaludoEnMayusculas())
 console.log(otroSaludoEnMayusculas('Jose'))
+
+// Template Strings
+
+const nombre = 'Victor'
+const edad = 39
+const stack = 'Javascript'
+const saludo = 'Hola soy, ' + nombre + '! Tengo ' + edad + ' años. Y mi stack es ' + stack
+
+console.log(saludo)
+
+const saludo2 = `Hola soy,
+${nombre}! Tengo ${edad} años.
+Y mi stack es ${stack}`
+
+console.log(saludo2)
+
+// Otros ejemplos
+
+const a = 5
+const b = 3
+console.log(`La suma de ${a} + ${b} es ${a + b}`) // "La suma de 5 + 3 es 8"
+
+const gritar = texto => texto.toUpperCase()
+console.log(`¡${gritar('hola')}!`) // ¡HOLA!
+
+const producto = 'laptop'
+const precio = 1200
+console.log(`El producto es ${producto} y cuesta $${precio}`)
