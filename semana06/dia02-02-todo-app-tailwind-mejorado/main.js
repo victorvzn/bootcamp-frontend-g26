@@ -4,7 +4,7 @@ const taskList = document.querySelector('.task__list')
 
 // console.log({ taskInput, taskButtonClear, taskList })
 
-const tasks = [
+let tasks = [
   {
     id: 'tarea-1',
     title: 'Estudiar Javascript',
@@ -88,9 +88,18 @@ taskInput.addEventListener('keydown', (event) => {
 taskList.addEventListener('click', (event) => {
   const { target } = event
 
-  if(target.tagName === 'BUTTON') {
+  if(target.tagName === 'BUTTON' && target.classList.contains('task-item__remove')) {
     console.log('eliminando tarea...')
+    console.log(target.dataset)
+
+    const { id } = target.dataset // id a remover de la lista 'tasks'
+
+    tasks = tasks.filter(task => task.id !== id )
+
+    renderTasks(tasks)
   }
 })
+
+// TODO: Al hacer click en el botón 'Limpiar tareas completadas' debemos remover todas las tareas completadas. Hay que llamar al método render también.
 
 renderTasks(tasks)
