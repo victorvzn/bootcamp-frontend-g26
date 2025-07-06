@@ -39,12 +39,13 @@ function renderTasks(tasks = []) {
         </div>
         <div class="flex gap-2">
           <button
-            class="border border-green-700 font-medium text-sm p-1 px-3 text-green-900 hover:text-white hover:bg-green-700 duration-300 rounded-lg"
+            class="task-item__edit border border-green-700 font-medium text-sm p-1 px-3 text-green-900 hover:text-white hover:bg-green-700 duration-300 rounded-lg"
           >
             ✏
           </button>
           <button
-            class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:text-white hover:bg-red-700 duration-300 rounded-lg"
+            class="task-item__remove border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:text-white hover:bg-red-700 duration-300 rounded-lg"
+            data-id="${task.id}"
           >
             ❌
           </button>
@@ -81,6 +82,14 @@ taskInput.addEventListener('keydown', (event) => {
     renderTasks(tasks)
 
     taskInput.value = ''
+  }
+})
+
+taskList.addEventListener('click', (event) => {
+  const { target } = event
+
+  if(target.tagName === 'BUTTON') {
+    console.log('eliminando tarea...')
   }
 })
 
