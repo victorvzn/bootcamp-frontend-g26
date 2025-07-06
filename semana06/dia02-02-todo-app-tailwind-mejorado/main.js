@@ -30,5 +30,15 @@ taskInput.addEventListener('keydown', (event) => {
 
   if (event.key === 'Enter') {
     console.log('Estamos agregando una nueva tarea', value)
+
+    const newTask = {
+      id: crypto.randomUUID(),
+      title: value,
+      completed: false
+    }
+
+    console.log(newTask)
+
+    taskInput.value = ''
   }
 })
