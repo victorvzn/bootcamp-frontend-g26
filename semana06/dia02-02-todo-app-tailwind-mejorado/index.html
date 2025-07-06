@@ -8,44 +8,48 @@
 </head>
 <body>
   
-  <main class="task">
-    <section>
-      <h1>Lista de tareas (Mejorado)</h1>
+  <main class="task w-96 mx-auto border rounded-lg shadow mt-10 p-4">
+    <section class="flex flex-col gap-4">
+      <h1 class="text-xl text-center font-bold text-gray-700">
+        Lista de tareas (Mejorado)
+      </h1>
 
-      <label>
+      <label class="flex flex-col gap-1">
         Ingresa una tarea
         <input
           type="text"
-          class="task__input"
+          class="task__input border border-gray-300 text-sm rounded-lg p-2 w-full"
           placeholder="Ej. Aprender javascript"
         />
       </label>
 
-      <div>
-        <button class="task__clear">
+      <div class="flex justify-end">
+        <button
+          class="task__clear border border-blue-700 font-medium text-sm p-1 px-3 text-blue-900 hover:text-white hover:bg-blue-700 duration-300 rounded-lg"
+        >
           Limpiar tareas completadas
         </button>
       </div>
     </section>
 
-    <ul class="task__list">
-      <li>
+    <ul class="task__list flex flex-col gap-2 mt-4">
+      <li class="flex justify-center items-center gap-4 py-1">
         <input type="checkbox" />
-        <div>
+        <div class="w-full">
           Tarea 1
         </div>
-        <button>
-          ❌
-        </button>
-      </li>
-      <li>
-        <input type="checkbox" />
-        <div>
-          Tarea 2
+        <div class="flex gap-2">
+          <button
+            class="border border-green-700 font-medium text-sm p-1 px-3 text-green-900 hover:text-white hover:bg-green-700 duration-300 rounded-lg"
+          >
+            ✏
+          </button>
+          <button
+            class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:text-white hover:bg-red-700 duration-300 rounded-lg"
+          >
+            ❌
+          </button>
         </div>
-        <button>
-          ❌
-        </button>
       </li>
     </ul>
   </main>
