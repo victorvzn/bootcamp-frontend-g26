@@ -22,6 +22,17 @@ const tasks = [
   },
 ]
 
+function renderTasks(tasks = []) {
+  let list = ''
+
+  tasks.forEach(task => {
+    // console.log(task)
+    list = list + '<li>' + task.title + '</li>'
+  })
+
+  taskList.innerHTML = list
+}
+
 // 01 - Al presionar enter en la caja de texto debemos agregar una nueva tarea a la lista.
 taskInput.addEventListener('keydown', (event) => {
   // console.log(event.key)
@@ -39,6 +50,15 @@ taskInput.addEventListener('keydown', (event) => {
 
     console.log(newTask)
 
+    tasks.push(newTask)
+
+    console.log(tasks)
+
+    // Agregar la tarea en la lista
+    renderTasks(tasks)
+
     taskInput.value = ''
   }
 })
+
+renderTasks(tasks)
