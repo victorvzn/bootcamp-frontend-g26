@@ -13,7 +13,7 @@ const tasks = [
   {
     id: 'tarea-2',
     title: 'Salir algún dia al receso',
-    completed: false
+    completed: true
   },
   {
     id: 'tarea-3',
@@ -27,7 +27,30 @@ function renderTasks(tasks = []) {
 
   tasks.forEach(task => {
     // console.log(task)
-    list = list + '<li>' + task.title + '</li>'
+    // list = list + '<li>' + task.title + '</li>'
+    list = list + `
+      <li class="flex justify-center items-center gap-4 py-1">
+        <input
+          type="checkbox"
+          ${task.completed ? 'checked' : ''}
+        />
+        <div class="w-full">
+          ${task.title}
+        </div>
+        <div class="flex gap-2">
+          <button
+            class="border border-green-700 font-medium text-sm p-1 px-3 text-green-900 hover:text-white hover:bg-green-700 duration-300 rounded-lg"
+          >
+            ✏
+          </button>
+          <button
+            class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:text-white hover:bg-red-700 duration-300 rounded-lg"
+          >
+            ❌
+          </button>
+        </div>
+      </li>
+    `
   })
 
   taskList.innerHTML = list
