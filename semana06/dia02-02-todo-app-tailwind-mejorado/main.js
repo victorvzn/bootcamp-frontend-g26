@@ -5,21 +5,21 @@ const taskList = document.querySelector('.task__list')
 // console.log({ taskInput, taskButtonClear, taskList })
 
 let tasks = [
-  {
-    id: 'tarea-1',
-    title: 'Estudiar Javascript',
-    completed: true
-  },
-  {
-    id: 'tarea-2',
-    title: 'Salir algún dia al receso',
-    completed: true
-  },
-  {
-    id: 'tarea-3',
-    title: 'Resolver el reto de la semana',
-    completed: false
-  },
+  // {
+  //   id: 'tarea-1',
+  //   title: 'Estudiar Javascript',
+  //   completed: true
+  // },
+  // {
+  //   id: 'tarea-2',
+  //   title: 'Salir algún dia al receso',
+  //   completed: true
+  // },
+  // {
+  //   id: 'tarea-3',
+  //   title: 'Resolver el reto de la semana',
+  //   completed: false
+  // },
 ]
 
 function renderTasks(tasks = []) {
@@ -33,8 +33,11 @@ function renderTasks(tasks = []) {
         <input
           type="checkbox"
           ${task.completed ? 'checked' : ''}
+          data-id="${task.id}"
         />
-        <div class="w-full">
+        <div
+          class="w-full ${task.completed ? 'line-through' : '' }"
+        >
           ${task.title}
         </div>
         <div class="flex gap-2">
@@ -98,8 +101,36 @@ taskList.addEventListener('click', (event) => {
 
     renderTasks(tasks)
   }
+
+  if(target.tagName === 'INPUT' && target.type === 'checkbox') {
+    // console.log('COmpletando la tarea....')
+    const { id } = target.dataset
+
+    const taskSelectedIndex = tasks.findIndex(task => {
+      return task.id === id
+    })
+
+    tasks[taskSelectedIndex] = {
+      ...tasks[taskSelectedIndex],
+      completed: !tasks[taskSelectedIndex].completed
+    }
+
+    console.log(tasks)
+
+    renderTasks(tasks)
+  }
 })
 
 // TODO: Al hacer click en el botón 'Limpiar tareas completadas' debemos remover todas las tareas completadas. Hay que llamar al método render también.
+
+taskButtonClear.addEventListener('click', (event) => {
+  const incompletedTasks = tasks.filter(task => {
+    return task.completed === false
+  })
+
+  tasks = incompletedTasks
+
+  renderTasks(tasks)
+})
 
 renderTasks(tasks)
