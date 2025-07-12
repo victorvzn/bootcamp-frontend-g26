@@ -4,7 +4,32 @@ const taskList = document.querySelector('.task__list')
 
 // console.log({ taskInput, taskButtonClear, taskList })
 
-let tasks = [
+// Localstorage
+
+// Escritura LS
+localStorage.setItem('frutas', 'manzana, pera, plátano')
+localStorage.setItem('colores', ['rojo', 'verde', 'amarillo'])
+localStorage.setItem('persona', { edad: 38 }) // [object Object]
+localStorage.setItem('unNumero', 24)
+localStorage.setItem('curso', JSON.stringify({ name: 'Algoritmos', nota: 19 })) // ✅
+
+// Lectura LS
+console.log(localStorage.getItem('nombre'))
+console.log(localStorage.getItem('frutas'))
+console.log(localStorage.getItem('persona'))
+console.log(typeof localStorage.getItem('unNumero'))
+console.log(localStorage.getItem('unNumero'))
+console.log(JSON.parse(localStorage.getItem('curso'))) // ✅
+
+// Que pasa si no exite la clave?
+console.log(localStorage.getItem('keyQueNoExiste')) // null
+
+// Eliminar LS
+localStorage.removeItem('persona')
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) ?? []
+
+// let tasks = [
   // {
   //   id: 'tarea-1',
   //   title: 'Estudiar Javascript',
@@ -20,7 +45,11 @@ let tasks = [
   //   title: 'Resolver el reto de la semana',
   //   completed: false
   // },
-]
+// ]
+
+function saveTasksInLocaStorage(tasks = []) {
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
 
 function renderTasks(tasks = []) {
   let list = ''
@@ -85,6 +114,8 @@ taskInput.addEventListener('keydown', (event) => {
     renderTasks(tasks)
 
     taskInput.value = ''
+
+    saveTasksInLocaStorage(tasks)
   }
 })
 
@@ -100,6 +131,8 @@ taskList.addEventListener('click', (event) => {
     tasks = tasks.filter(task => task.id !== id )
 
     renderTasks(tasks)
+
+    saveTasksInLocaStorage(tasks)
   }
 
   if(target.tagName === 'INPUT' && target.type === 'checkbox') {
@@ -118,6 +151,8 @@ taskList.addEventListener('click', (event) => {
     console.log(tasks)
 
     renderTasks(tasks)
+
+    saveTasksInLocaStorage(tasks)
   }
 })
 
@@ -131,6 +166,8 @@ taskButtonClear.addEventListener('click', (event) => {
   tasks = incompletedTasks
 
   renderTasks(tasks)
+
+  saveTasksInLocaStorage(tasks)
 })
 
 renderTasks(tasks)
