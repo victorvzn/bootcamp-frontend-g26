@@ -82,16 +82,16 @@ function renderQuestions() {
           Anterior
         </button>
         <button
-          class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          class="${(currentQuestionIndex === questions.length - 1) ? 'hidden' : ''} text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
           onclick="nextQuestion(event)"
         >
           Siguiente
         </button>
         <button
-          class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          class="${(currentQuestionIndex === questions.length - 1) ? '' : 'hidden'} text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
           onclick="showResultPage(event)"
         >
-          Resultados
+          Mostrar Resultados
         </button>
       </div>
     </section>
@@ -147,7 +147,13 @@ function respondQuestion(event, questionSelected) {
     }
     button.setAttribute('disabled', 'disabled')
   })
+}
 
+function startAgain() {
+  correctAnswerCounter = 0
+  currentQuestionIndex = 0
+
+  renderQuestions()
 }
 
 function showResultPage(event) {
@@ -173,7 +179,10 @@ function showResultPage(event) {
       <img src="https://placehold.co/300x100" />
 
       <div class="flex justify-center mt-10">
-        <button class="text-white bg-blue-600  hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full cursor-pointer text-center">
+        <button
+          class="text-white bg-blue-600  hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full cursor-pointer text-center"
+          onclick="startAgain(event)"
+        >
           Empezar de nuevo
         </button>
       </div>
