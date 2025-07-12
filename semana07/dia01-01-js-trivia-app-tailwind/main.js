@@ -152,6 +152,33 @@ function respondQuestion(event, questionSelected) {
 
 function showResultPage(event) {
   // TODO: Mostrar la pantalla de resultados con los datos respectivos
+  const hasWin = correctAnswerCounter === questions.length
+
+  const title = hasWin ? '¡GANASTE!' : '¡MEJOR SUERTE LA PRÓXIMA!'
+
+  const score = correctAnswerCounter * 10
+
+  questionsAndResults.innerHTML = `
+    <section class="flex flex-col px-4 py-6 bg-green-600 border rounded-lg shadow  text-center">
+      <p class="text-4xl font-medium text-gray-900 mb-4">${title}</p>
+
+      <p class="text-md font-medium text-gray-900 mb-4">
+        Respondiste ${correctAnswerCounter} de ${questions.length}
+      </p>
+
+      <p class="text-md font-medium text-gray-900 mb-4">
+        Y este es tu puntaje: ${score}
+      </p>
+
+      <img src="https://placehold.co/300x100" />
+
+      <div class="flex justify-center mt-10">
+        <button class="text-white bg-blue-600  hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full cursor-pointer text-center">
+          Empezar de nuevo
+        </button>
+      </div>
+    </section>
+  `
 }
 
 renderQuestions()
