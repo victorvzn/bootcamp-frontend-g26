@@ -30,6 +30,7 @@ const questions = [
 ]
 
 let currentQuestionIndex = 0
+let correctAnswerCounter = 0 // Contador
 
 const questionsAndResults = document.querySelector('#questionsAndResults')
 
@@ -75,7 +76,7 @@ function renderQuestions() {
 
       <div class="flex items-center">
         <button
-          class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          class="hidden text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
           onclick="prevQuestion(event)"
         >
           Anterior
@@ -86,7 +87,10 @@ function renderQuestions() {
         >
           Siguiente
         </button>
-        <button class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer">
+        <button
+          class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          onclick="showResultPage(event)"
+        >
           Resultados
         </button>
       </div>
@@ -123,6 +127,14 @@ function respondQuestion(event, questionSelected) {
 
   const currentQuestion = questions[currentQuestionIndex]
 
+  // Incrementar el número de respuestas correctas
+  if(questionSelected === currentQuestion.correctAnswer) {
+    correctAnswerCounter = correctAnswerCounter + 1
+    // correctAnswerCounter++
+
+    console.log(correctAnswerCounter)
+  }
+
   const answerButtons = document.querySelectorAll('[data-answer]')
 
   answerButtons.forEach(button => {
@@ -136,6 +148,10 @@ function respondQuestion(event, questionSelected) {
     button.setAttribute('disabled', 'disabled')
   })
 
+}
+
+function showResultPage(event) {
+  // TODO: Mostrar la pantalla de resultados con los datos respectivos
 }
 
 renderQuestions()
