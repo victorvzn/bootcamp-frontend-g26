@@ -28,3 +28,99 @@ const questions = [
     answerList: ['null', 'object', 'undefined']
   }
 ]
+
+let currentQuestionIndex = 0
+
+const questionsAndResults = document.querySelector('#questionsAndResults')
+
+function renderQuestions() {
+  const currentQuestion = questions[currentQuestionIndex]
+
+  const questionTemplate = `
+    <section class="flex flex-col mb-10">
+      <p class="text-md font-medium text-gray-900 mb-4">
+        ${currentQuestion.order}. ${currentQuestion.question}
+      </p>
+
+      <div class="flex flex-col items-start mb-10">
+        <button
+          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          onclick="respondQuestion(event, 0)"
+        >
+          ${currentQuestion.answerList[0]}
+        </button>
+        <button
+          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          onclick="respondQuestion(event, 1)"
+        >
+          ${currentQuestion.answerList[1]}
+        </button>
+        <button
+          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          onclick="respondQuestion(event, 2)"
+        >
+          ${currentQuestion.answerList[2]}
+        </button>
+
+        <button class="hidden text-white border border-red-700 bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full">
+          Respuesta incorrecta
+        </button>
+        <button class="hidden text-white border border-green-700 bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full">
+          Respuesta correcta
+        </button>
+      </div>
+
+      <div class="flex items-center">
+        <button
+          class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          onclick="prevQuestion(event)"
+        >
+          Anterior
+        </button>
+        <button
+          class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
+          onclick="nextQuestion(event)"
+        >
+          Siguiente
+        </button>
+        <button class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer">
+          Resultados
+        </button>
+      </div>
+    </section>
+  `
+
+  questionsAndResults.innerHTML = questionTemplate
+}
+
+function nextQuestion(event) {
+  // TODO: Validar cuando no tenemos más preguntas por mostrar
+  if (currentQuestionIndex >= questions.length - 1) {
+    return
+  }
+
+  currentQuestionIndex = currentQuestionIndex + 1
+
+  renderQuestions()
+}
+
+function prevQuestion(event) {
+  // TODO: Validar cuando nos movemos a una pregunta anterior a la primera
+  if (currentQuestionIndex <= 0) {
+    return
+  }
+
+  currentQuestionIndex = currentQuestionIndex - 1
+
+  renderQuestions()
+}
+
+function respondQuestion(event, questionSelected) {
+  console.log({ questionSelected })
+
+  const currentQuestion = questions[currentQuestionIndex]
+
+  
+}
+
+renderQuestions()
