@@ -46,18 +46,21 @@ function renderQuestions() {
         <button
           class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
           onclick="respondQuestion(event, 0)"
+          data-answer="0"
         >
           ${currentQuestion.answerList[0]}
         </button>
         <button
           class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
           onclick="respondQuestion(event, 1)"
+          data-answer="1"
         >
           ${currentQuestion.answerList[1]}
         </button>
         <button
           class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full cursor-pointer"
           onclick="respondQuestion(event, 2)"
+          data-answer="2"
         >
           ${currentQuestion.answerList[2]}
         </button>
@@ -120,7 +123,19 @@ function respondQuestion(event, questionSelected) {
 
   const currentQuestion = questions[currentQuestionIndex]
 
-  
+  const answerButtons = document.querySelectorAll('[data-answer]')
+
+  answerButtons.forEach(button => {
+    if (Number(button.dataset.answer) === currentQuestion.correctAnswer) {
+      // button.classList.toggle('bg-green-600')
+      button.className = 'text-white border border-green-600 bg-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full'
+    } else {
+      // button.classList.toggle('bg-red-600')
+      button.className = 'text-white border border-red-600 bg-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-left mr-2 mb-2 w-full'
+    }
+    button.setAttribute('disabled', 'disabled')
+  })
+
 }
 
 renderQuestions()
