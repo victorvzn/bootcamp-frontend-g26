@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game + Javascript</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <main class="hangman w-96 mx-auto mt-4 p-6">
+    <h1 class="hangman__title text-xl font-medium text-center">HangmanGame + Javascript</h1>
+
+    <p class="hangman__maskedword text-6xl text-center mb-8">_________</p>
+
+    <section class="hangman__buttons grid grid-cols-6 gap-4">
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+      <button class="p-2 bg-blue-500 text-white font-bold text-xl cursor-pointer hover:bg-blue-600 duration-300 rounded-md">A</button>
+    </section>
+
+    <section class="hidden hangman__results text-3xl mt-8 text-center uppercase font-black text-green-500">
+      ¡Ganaste!
+    </section>
+
+    <button class="hangman__startagain mt-8 p-2 bg-yellow-500 text-white font-bold text-xl cursor-pointer hover:bg-yellow-600 duration-300 rounded-md w-full">
+      Start Again
+    </button>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
