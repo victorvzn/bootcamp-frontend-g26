@@ -12,6 +12,7 @@ const word = ANSWER_WORD.toUpperCase()
 console.log(word)
 
 let correctGuess = ''
+let tries = 0
 
 // Implementar una función para renderizar los botones con cada letra del alfabeto de la A a la Z
 
@@ -47,13 +48,29 @@ const renderAlphabet = () => {
 }
 
 const selectLetter = (letter) => {
+  tries++
+
   console.log({ letter })
 
   correctGuess += letter
   
   console.log('intentos', correctGuess)
 
+  renderMaskedWord()
+
   renderAlphabet()
+}
+
+const renderMaskedWord = () => {
+  elMaskedWord.textContent = word.split('').map(
+    letter => correctGuess.includes(letter) ? letter : '_'
+  )
+  .join('')
+
+  console.log({tries})
+
+  // TODO: Si gana el juego hay que agregar la lógica de mostrar el div con el texto Ganaste y sino mostraremos que perdio el juego.
+  
 }
 
 renderAlphabet()
