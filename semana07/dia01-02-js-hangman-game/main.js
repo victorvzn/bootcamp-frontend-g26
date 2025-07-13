@@ -70,7 +70,33 @@ const renderMaskedWord = () => {
   console.log({tries})
 
   // TODO: Si gana el juego hay que agregar la lógica de mostrar el div con el texto Ganaste y sino mostraremos que perdio el juego.
-  
+  if(!elMaskedWord.textContent.includes('_')) {
+    console.log('YOU WON!')
+    elResult.classList.toggle('hidden')
+    elResult.classList.toggle('text-green-500')
+    elResult.textContent = 'YOU WON!'
+    elStartAgainButton.classList.toggle('hidden')
+  } else if(tries > word.length) {
+    console.log('YOU LOST!')
+    elResult.classList.toggle('hidden')
+    elResult.classList.toggle('text-red-500')
+    elResult.textContent = 'YOU LOST!'
+    elStartAgainButton.classList.toggle('hidden')
+
+    elMaskedWord.textContent = word
+  }
 }
+
+elStartAgainButton.addEventListener('click', (event) => {
+  correctGuess = ''
+  tries = 0
+
+  elResult.classList.toggle('hidden')
+  elStartAgainButton.classList.toggle('hidden')
+
+  renderMaskedWord()
+
+  renderAlphabet()
+})
 
 renderAlphabet()
