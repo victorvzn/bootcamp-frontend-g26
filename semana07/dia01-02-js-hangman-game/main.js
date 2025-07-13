@@ -13,7 +13,8 @@ console.log(word)
 
 // Implementar una función para renderizar los botones con cada letra del alfabeto de la A a la Z
 
-const ALPHABET = ['A', 'B', 'C', '...', 'Z'] // TODO: Reemplazar por una función que genere las letras de la A a la Z
+ // TODO: Reemplazar por una función que genere las letras de la A a la Z
+const ALPHABET = Array.from({ length: 26 }, (el, index) => String.fromCharCode(65 + index))
 
 const renderAlphabet = () => {
   let list = ''
