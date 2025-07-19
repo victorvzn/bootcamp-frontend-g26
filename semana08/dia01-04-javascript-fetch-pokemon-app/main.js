@@ -3,7 +3,25 @@ const fetchPokemons = async () => {
 
   const response = await fetch(url)
 
-  return response.json()
+  const data = await response.json()
+
+  const dataResults = data.results.map(pokemon => {
+    const id = pokemon.url.split('/').at(6)
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+
+    return {
+      ...pokemon,
+      id,
+      image,
+    }
+  })
+
+  console.log({ dataResults })
+
+  return {
+    ...data,
+    results: dataResults
+  }
 }
 
 const renderPokemons = (pokemons = []) => {
@@ -16,9 +34,9 @@ const renderPokemons = (pokemons = []) => {
   pokemons.forEach(pokemon => {
     elements += `
       <article class="pokemon-item">
-        <h3>${pokemon.name}</h3>
+        <h3>${pokemon.id} - ${pokemon.name}</h3>
         <img
-          src="https://placehold.co/80x80"
+          src="${pokemon.image}"
           width="80"
           height="80"
         />
