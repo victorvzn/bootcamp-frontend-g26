@@ -1,4 +1,4 @@
-const pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
+let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
 
 console.log(pokemonFavorites)
 
@@ -64,15 +64,28 @@ const renderPokemons = (pokemons = []) => {
   pokemonList.innerHTML = elements
 }
 
-const toggleFavorite = (id, name, image) => {
+const toggleFavorite = async (id, name, image) => {
   console.log('favorite...', { id, name, image })
+  const foundPokemonFavorite = pokemonFavorites.filter(favorite => favorite.id === id)
+  const existPokemonFavorite = foundPokemonFavorite.length > 0
 
-  // Almacenamos el pokemon en memoria y en localstorage si no existe
-  pokemonFavorites.push({ id, name, image })
-
-  console.log(pokemonFavorites)
+  if (existPokemonFavorite) {
+    // Necesitamos retirar el pokemon de favoritos cuando ya existe
+    pokemonFavorites = pokemonFavorites.filter(
+      pokemon => pokemon.id !== id
+    )
+  } else {
+    // Almacenamos el pokemon en memoria y en localstorage si no existe
+    pokemonFavorites.push({ id, name, image })
+  
+    console.log(pokemonFavorites)
+  }
 
   localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
+
+  const data = await fetchPokemons()
+
+  renderPokemons(data.results)
 }
 
 fetchPokemons()
