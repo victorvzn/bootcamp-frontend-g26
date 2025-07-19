@@ -1,9 +1,15 @@
 let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
 
+const LIMIT = 9
+let currentPage = 1
+let totalCount = 0
+
 console.log(pokemonFavorites)
 
-const fetchPokemons = async () => {
-  const url = 'https://pokeapi.co/api/v2/pokemon/'
+const fetchPokemons = async (page = 1) => {
+  const offset = (page - 1) * LIMIT
+
+  const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${LIMIT}`
 
   const response = await fetch(url)
 
@@ -28,6 +34,8 @@ const fetchPokemons = async () => {
 
   console.log({ dataResults })
 
+  totalCount = data.count
+
   return {
     ...data,
     results: dataResults
@@ -47,6 +55,7 @@ const renderPokemons = (pokemons = []) => {
         <h3>${pokemon.id} - ${pokemon.name}</h3>
         <img
           src="${pokemon.image}"
+          onerror="this.src='https://placehold.co/80x80'"
           width="80"
           height="80"
         />
@@ -66,6 +75,10 @@ const renderPokemons = (pokemons = []) => {
   })
 
   pokemonList.innerHTML = elements
+
+  const totalPages = Math.ceil(totalCount / LIMIT)
+
+  currentPageDiv.textContent = `${currentPage} de ${totalPages}`
 }
 
 const toggleFavorite = async (id, name, image) => {
@@ -147,6 +160,58 @@ pokemonForm.addEventListener('submit', async (event) => {
   pokemonForm.reset()
 
   const data = await fetchPokemons()
+
+  renderPokemons(data.results)
+})
+
+const nextPage = document.querySelector('#nextPage')
+const firstPage = document.querySelector('#firstPage')
+const prevPage = document.querySelector('#prevPage')
+const lastPage = document.querySelector('#lastPage')
+const currentPageDiv = document.querySelector('#currentPage')
+
+nextPage.addEventListener('click', async () => {
+  currentPage = currentPage + 1
+
+  const totalPages = Math.ceil(totalCount / LIMIT)
+
+  if (currentPage > totalPages) {
+    currentPage = totalPages
+    return
+  }
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
+})
+
+firstPage.addEventListener('click', async () => {
+  currentPage = 1
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
+})
+
+prevPage.addEventListener('click', async () => {
+  currentPage = currentPage - 1
+
+  if (currentPage <= 0) {
+    currentPage = 1
+    return
+  }
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
+})
+
+lastPage.addEventListener('click', async () => {
+  const totalPages = Math.ceil(totalCount / LIMIT)
+
+  currentPage = totalPages
+
+  const data = await fetchPokemons(currentPage)
 
   renderPokemons(data.results)
 })
