@@ -11,9 +11,18 @@ const renderPokemons = (pokemons = []) => {
 
   let elements = ''
 
+  // TODO: 01 - Renderizar la imagen de cada pokemon
+
   pokemons.forEach(pokemon => {
     elements += `
-      <h2>${pokemon.name}</h2>
+      <article class="pokemon-item">
+        <h3>${pokemon.name}</h3>
+        <img
+          src="https://placehold.co/80x80"
+          width="80"
+          height="80"
+        />
+      </article>
     `
   })
 
