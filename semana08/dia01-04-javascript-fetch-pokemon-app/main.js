@@ -20,7 +20,8 @@ const fetchPokemons = async () => {
     return {
       ...pokemon,
       id,
-      image,
+      name: isFavorite ? foundFavorite.name : pokemon.name,
+      image: isFavorite ? foundFavorite.image : image,
       isFavorite,
     }
   })
@@ -111,6 +112,44 @@ const readPokemon = (pokemonId) => {
     pokemonForm.image.value = foundPokemon.image
   }
 }
+
+const pokemonForm = document.querySelector('#pokemonForm')
+
+pokemonForm.addEventListener('submit', async (event) => {
+  event.preventDefault()
+
+  console.log('Guardando pokemon ...')
+
+  const pokemonForm = document.forms['pokemonForm']
+
+  const id = pokemonForm.id.value
+  const updatedName = pokemonForm.name.value
+  const updatedImage = pokemonForm.image.value
+
+  console.log(id, name, image)
+
+  const updatedPokemons = pokemonFavorites.map(pokemon => {
+    if (pokemon.id === id) {
+      return {
+        id,
+        name: updatedName,
+        image: updatedImage
+      }
+    }
+
+    return pokemon
+  })
+
+  pokemonFavorites = updatedPokemons
+
+  localStorage.setItem('pokemon-favorites', JSON.stringify(updatedPokemons))
+
+  pokemonForm.reset()
+
+  const data = await fetchPokemons()
+
+  renderPokemons(data.results)
+})
 
 fetchPokemons()
   .then(data => {
