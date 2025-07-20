@@ -31,7 +31,7 @@ export const renderMovies = (movies = []) => {
         <td>
           <div class="flex gap-0.5">
             <button class="movies__edit">✏</button>
-            <button class="movies__remove">❌</button>
+            <button class="movies__remove" data-id="${movie.id}">❌</button>
           </div>
         </td>
       </tr>
@@ -39,6 +39,24 @@ export const renderMovies = (movies = []) => {
   })
 
   elMovieList.innerHTML = elements
+
+  const removeButtons = document.querySelectorAll('.movies__remove')
+
+  removeButtons.forEach(button => {
+    button.addEventListener('click', async (event) => {
+      const { id } = event.target.dataset
+
+      console.log(id)
+
+      // TODO: 03 - Terminar de hacer el llamado a la función 'deleteMovie(id)' y refrescar la tabla de peliculas
+
+      const confirmDelete = confirm('¿Estas seguro de eliminar esta película?')
+
+      if (confirmDelete) {
+        console.log('Borrar la pelicula')
+      }
+    })
+  })
 }
 
 // TODO: 02 - Crear una nueva película desde el formulario
