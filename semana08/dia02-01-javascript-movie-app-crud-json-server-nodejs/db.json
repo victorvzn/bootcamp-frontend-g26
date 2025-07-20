@@ -89,6 +89,13 @@
       "release": "2023-04-05",
       "genreId": 3,
       "summary": "Resumen de prueba"
+    },
+    {
+      "name": "Superman2",
+      "image": "https://placehold.co/302x452",
+      "release": "2025-07-23",
+      "genreId": "2",
+      "id": 10
     }
   ]
 }

@@ -11,7 +11,7 @@
         <td>${movie.id}</td>
         <td>
           <img
-            src="${movie.image}
+            src="${movie.image}"
             width="100"
             height="150"
           />
@@ -45,6 +45,55 @@ const fetchMovies = async () => {
 
   return await response.json()
 }
+
+const createMovie = async (form) => { // POST
+  const url = 'http://localhost:3000/movies'
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(form) // EL body siempre tiene que ser una cadena de texto
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}
+
+// TODO: 02 - Crear una nueva película desde el formulario
+
+const elMoviesForm = document.querySelector('#moviesForm')
+
+elMoviesForm.addEventListener('submit', async (event) => {
+  event.preventDefault()
+  console.log('Creando una pelicula')
+  // 1. Extraer los datos del formulario
+  const peliculaForm = document.forms['moviesForm']
+
+  const id = peliculaForm.id.value
+
+  const name = peliculaForm.name.value
+  const image = peliculaForm.image.value
+  const release = peliculaForm.release.value
+  const genreId = peliculaForm.genreId.value
+  const summary = peliculaForm.name.summarylue
+
+  // 2. Crear la película en el servidor
+  const newMovie = {
+    name,
+    image,
+    release,
+    genreId,
+    summary
+  }
+  
+  const response = await createMovie(newMovie)
+
+  console.log(response)
+})
+
 
 fetchMovies()
   .then(data => {
