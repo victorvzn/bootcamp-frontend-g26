@@ -1,0 +1,1 @@
+ // TODO: Crear la función renderMovies para mostrar los datos de las peliculas en la tabla.

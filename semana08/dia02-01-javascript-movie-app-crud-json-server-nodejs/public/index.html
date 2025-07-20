@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Películas con json-server</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+  >
+  <style>
+    .text-small {
+      font-size: .8rem;
+    }
+    .flex {
+      display: flex;
+    }
+    .gap-0\.5 { /* class="gap-0.5" */
+      gap: .5rem;
+    }
+    .gap-1 {
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>CRUD de Películas con json-server</strong></li>
+    </ul>
+  </nav>
+
+  <main class="movies container-fluid">
+    <div class="grid">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="movies__list">
+
+            <tr>
+              <td>1</td>
+              <td>
+                <img
+                  src="https://placehold.co/100x150"
+                  width="100"
+                  height="150"
+                />
+              </td>
+              <td>
+                <strong>Mi pelicula</strong>
+                <div class="text-small">
+                  <strong>Estreno:</strong> 2025-07-21
+                </div>
+                <div class="text-small">
+                  <strong>Resumen:</strong> Algun resumen por aqui
+                </div>
+              </td>
+              <td>
+                <div class="flex gap-0.5">
+                  <button class="movies__edit">✏</button>
+                  <button class="movies__remove">❌</button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <form id="moviesForm">
+          <h2>New movie</h2>
+
+          <input type="hidden" name="id" placeholder="id" />
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="text" name="image" placeholder="Image" required />
+          <input type="date" name="release" placeholder="Release" required />
+          <select name="genreId" required>
+            <option value="">Select a genre</option>
+            <option value="1">Comedy</option>
+            <option value="2">Action</option>
+            <option value="3">Animation</option>
+            <option value="4">Adventure</option>
+          </select>
+          <textarea name="summary" placeholder="Summary"></textarea>
+
+          <input type="submit" value="Save" />
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container-fluid">
+    Victor Villazón - Julio 2025
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
