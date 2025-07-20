@@ -1,0 +1,14 @@
+{
+  "name": "dia02-01-javascript-movie-app-crud-json-server-nodejs",
+  "version": "1.0.0",
+  "description": "CRUD usando el API fetch + json-server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "json-server --watch db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "0.17.4"
+  }
+}
