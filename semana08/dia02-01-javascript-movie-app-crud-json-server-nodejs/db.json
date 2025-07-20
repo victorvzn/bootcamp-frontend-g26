@@ -19,6 +19,14 @@
   ],
   "movies": [
     {
+      "id": 1,
+      "name": "Barbie",
+      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+      "release": "2023-07-21",
+      "genreId": 1,
+      "summary": "Resumen de prueba"
+    },
+    {
       "id": 2,
       "name": "Transformers: Rise of the Beasts",
       "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
@@ -81,14 +89,6 @@
       "release": "2023-04-05",
       "genreId": 3,
       "summary": "Resumen de prueba"
-    },
-    {
-      "name": "Superman-edited",
-      "image": "https://placehold.co/301x451",
-      "release": "2025-07-28",
-      "genreId": 2,
-      "summary": "Una super película edited",
-      "id": 10
     }
   ]
 }
