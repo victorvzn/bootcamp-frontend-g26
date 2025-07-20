@@ -1,0 +1,35 @@
+### Get all genres
+GET http://localhost:3000/genres
+
+### Get all movies
+GET http://localhost:3000/movies
+
+### Get a movie
+GET http://localhost:3000/movies/10
+
+### Create a movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "name": "Superman",
+  "image": "https://placehold.co/300x450",
+  "release": "2025-07-31",
+  "genreId": 4,
+  "summary": "Una super película"
+}
+
+### Delete a movie
+DELETE http://localhost:3000/movies/1
+
+### Update a movie
+PUT http://localhost:3000/movies/10
+Content-Type: application/json
+
+{
+  "name": "Superman-edited",
+  "image": "https://placehold.co/301x451",
+  "release": "2025-07-28",
+  "genreId": 2,
+  "summary": "Una super película edited"
+}
