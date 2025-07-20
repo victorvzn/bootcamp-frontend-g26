@@ -1,4 +1,4 @@
-import { createMovie } from "./services.js"
+import { createMovie, fetchMovies } from "./services.js"
 
 // TODO: 01 - Crear la función renderMovies para mostrar los datos de las peliculas en la tabla.
 
@@ -57,7 +57,7 @@ elMoviesForm.addEventListener('submit', async (event) => {
   const image = peliculaForm.image.value
   const release = peliculaForm.release.value
   const genreId = peliculaForm.genreId.value
-  const summary = peliculaForm.name.summarylue
+  const summary = peliculaForm.summary.value
 
   // 2. Crear la película en el servidor
   const newMovie = {
@@ -70,5 +70,11 @@ elMoviesForm.addEventListener('submit', async (event) => {
   
   const response = await createMovie(newMovie)
 
-  console.log(response)
+  if (response) {
+    const movies = await fetchMovies()
+
+    renderMovies(movies)
+  }
+
+  peliculaForm.reset()
 })

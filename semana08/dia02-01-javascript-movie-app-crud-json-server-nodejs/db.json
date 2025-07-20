@@ -91,6 +91,7 @@
       "summary": "Resumen de prueba"
     },
     {
+      "summary": "Resumen de prueba",
       "name": "Superman2",
       "image": "https://placehold.co/302x452",
       "release": "2025-07-23",
@@ -98,11 +99,20 @@
       "id": 10
     },
     {
+      "summary": "C",
       "name": "A",
       "image": "B",
       "release": "2025-07-16",
       "genreId": "1",
       "id": 11
+    },
+    {
+      "summary": "Z",
+      "name": "X",
+      "image": "Y",
+      "release": "2025-07-18",
+      "genreId": "2",
+      "id": 12
     }
   ]
 }
