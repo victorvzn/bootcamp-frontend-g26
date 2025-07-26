@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { TodoHeader } from "./components/TodoHeader"
+import { TodoList } from "./components/TodoList"
 
 export default function App() {
   const DEFAULT_TODOS = [
@@ -22,15 +24,14 @@ export default function App() {
   const [todos, setTodos] = useState(DEFAULT_TODOS)
 
   return (
-    <main>
-      <header>
-        <h1>
-          Todo App
-        </h1>
-      </header>
+    <main
+      className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
+    >
+      <TodoHeader title='Todo App + React + Tailwind' />
 
+      <TodoList todos={todos} />
 
-      <pre>{JSON.stringify(todos, null, 2)}</pre>
+      <pre className="mt-4 border border-slate-400 p-2">{JSON.stringify(todos, null, 2)}</pre>
     </main>
   )
 }
