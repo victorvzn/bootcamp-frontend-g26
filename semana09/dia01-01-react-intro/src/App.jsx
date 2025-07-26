@@ -1,8 +1,29 @@
 // 07 - USANDO EXPRESIONES CON JSX
 
+import { EDAD, LISTA_DE_FRUTAS } from "./components/frutas"
+
 const App = () => {
+  const nombre = 'Victor'
+
+  // Comentario en React dentro del cuerpo de la función
+
+  /* Otro comentario multilínea */
+
   return (
-    <div>App</div>
+    <div>
+      <h1>Hola React!</h1>
+      <p>Estoy en el bootcamp!</p>
+
+      <p>{1 + 2 + 9 ** 2}</p>
+
+      <p>{`Hola ${nombre}`}</p>
+
+      {/* Comentario en React dentro del JSX */}
+
+      <p>{LISTA_DE_FRUTAS}</p>
+
+      <p>{EDAD}</p>
+    </div>
   )
 }
 
