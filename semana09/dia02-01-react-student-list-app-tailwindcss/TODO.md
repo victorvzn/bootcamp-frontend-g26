@@ -2,7 +2,7 @@
 
 * [x] Crear proyecto con Vite + React
 * [x] Instalar Tailwind CSS
-* [ ] Crear un endpoint con https://mockapi.io/
+* [x] Crear un endpoint con https://mockapi.io/ y probarlo con la extensión rest api (cliente)
 * [ ] Mostrar la lista de estudiantes en una tabla o lista
 * [ ] Agregar nuevo estudiante con nombre, ciudad
 * [ ] Validar campos del formulario (no vacíos)
