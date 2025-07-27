@@ -1,4 +1,7 @@
 export const TodoList = ({ todos, onRemoveTodo }) => {
+  // TODO: Agregar un checkbox en cada fila y cambiar el estado de cada todo en su key completed
+  // TODO: Y además debemos tachar el texto si la tarea está completada
+
   return (
     <ul className="flex flex-col gap-2 mt-4">
       {todos.map(todo => {
@@ -7,6 +10,7 @@ export const TodoList = ({ todos, onRemoveTodo }) => {
             key={todo.id}
             className="flex gap-2 bg-yellow-200 p-2 rounded-lg"
           >
+            {/* Aqui va el checkbox */}
             <div className="w-full flex justify-between items-center gap-2">
               <span
                 className="font-medium w-full p-1"
