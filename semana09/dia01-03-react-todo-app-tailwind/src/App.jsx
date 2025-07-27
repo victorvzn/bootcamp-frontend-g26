@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { TodoHeader } from "./components/TodoHeader"
 import { TodoList } from "./components/TodoList"
+import { TodoForm } from "./components/TodoForm"
 
 export default function App() {
   const DEFAULT_TODOS = [
@@ -22,23 +23,9 @@ export default function App() {
   ]
 
   const [todos, setTodos] = useState(DEFAULT_TODOS)
-  const [input, setInput] = useState('')
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-
-    // const form = document.forms['todo-form']
-    console.log('Agregando tareas...', input)
-
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title: input,
-      completed: false
-    }
-
+  const handleSubmit = (newTodo) => {
     setTodos([...todos, newTodo])
-
-    setInput('')
   }
 
   return (
@@ -47,17 +34,7 @@ export default function App() {
     >
       <TodoHeader title='Todo App + React + Tailwind' />
 
-      <form id="todo-form" onSubmit={handleSubmit}>
-        <input
-          // name="input"
-          type="text"
-          placeholder="¿Qué deseas hacer hoy?"
-          required
-          className="border w-full border-yellow-400 my-3 px-2 py-3 rounded-lg"
-          onChange={(event) => setInput(event.target.value)}
-          value={input}
-        />
-      </form>
+      <TodoForm onSubmit={handleSubmit} />
 
       <TodoList todos={todos} />
 
