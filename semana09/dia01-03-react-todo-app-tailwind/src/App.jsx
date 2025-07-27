@@ -28,6 +28,14 @@ export default function App() {
     setTodos([...todos, newTodo])
   }
 
+  const handleRemoveTodo = (id) => {
+    console.log('Eliminando todo', id)
+
+    const updateTodos = todos.filter(todo => todo.id !== id)
+
+    setTodos(updateTodos)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
@@ -36,7 +44,7 @@ export default function App() {
 
       <TodoForm onSubmit={handleSubmit} />
 
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onRemoveTodo={handleRemoveTodo} />
 
       <pre className="mt-4 border border-slate-400 p-2">{JSON.stringify(todos, null, 2)}</pre>
     </main>
