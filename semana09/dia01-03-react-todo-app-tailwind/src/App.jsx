@@ -2,6 +2,7 @@ import { useState } from "react"
 import { TodoHeader } from "./components/TodoHeader"
 import { TodoList } from "./components/TodoList"
 import { TodoForm } from "./components/TodoForm"
+import TodoStats from "./components/TodoStats"
 
 export default function App() {
   const DEFAULT_TODOS = [
@@ -55,6 +56,12 @@ export default function App() {
     setTodos(updatedTodos)
   }
 
+  const handleClearCompletedTodos = () => {
+    const incompletedTodos = todos.filter(todo => todo.completed === false)
+
+    setTodos(incompletedTodos)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
@@ -63,19 +70,10 @@ export default function App() {
 
       <TodoForm onSubmit={handleSubmit} />
 
-      {/* TODO: Llenar los datos de las estadisticas y limpiar las tareas completadas con el botón */}
-
-      <section className="flex justify-between items-center">
-        <span className="font-bold">
-          2 de 3
-        </span>
-
-        <button
-          className="bg-blue-500 text-white rounded-lg px-3 py-1 hover:bg-blue-700 duration-300 cursor-pointer"
-        >
-          Limpiar completadas
-        </button>
-      </section>
+      <TodoStats
+        todos={todos}
+        onClearCompletedTodos={handleClearCompletedTodos}
+      />
 
       <TodoList
         todos={todos}
