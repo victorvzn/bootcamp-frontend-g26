@@ -1,7 +1,7 @@
 # Student list + React + Tailwind
 
 * [x] Crear proyecto con Vite + React
-* [ ] Instalar Tailwind CSS
+* [x] Instalar Tailwind CSS
 * [ ] Crear un endpoint con https://mockapi.io/
 * [ ] Mostrar la lista de estudiantes en una tabla o lista
 * [ ] Agregar nuevo estudiante con nombre, ciudad
