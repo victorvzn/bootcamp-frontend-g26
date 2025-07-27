@@ -22,11 +22,15 @@ export default function App() {
   ]
 
   const [todos, setTodos] = useState(DEFAULT_TODOS)
+  const [input, setInput] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    console.log('Agregando tareas...')
+    // const form = document.forms['todo-form']
+    console.log('Agregando tareas...', input)
+
+    
   }
 
   return (
@@ -35,13 +39,17 @@ export default function App() {
     >
       <TodoHeader title='Todo App + React + Tailwind' />
 
-      <form onSubmit={handleSubmit}>
+      <form id="todo-form" onSubmit={handleSubmit}>
         <input
+          // name="input"
           type="text"
           placeholder="¿Qué deseas hacer hoy?"
           required
           className="border w-full border-yellow-400 my-3 px-2 py-3 rounded-lg"
+          onChange={(event) => setInput(event.target.value)}
         />
+
+        {input}
       </form>
 
       <TodoList todos={todos} />
