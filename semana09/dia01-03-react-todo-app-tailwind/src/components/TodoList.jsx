@@ -1,4 +1,4 @@
-export const TodoList = ({ todos, onRemoveTodo }) => {
+export const TodoList = ({ todos, onRemoveTodo, onCompleted }) => {
   // TODO: Agregar un checkbox en cada fila y cambiar el estado de cada todo en su key completed
   // TODO: Y además debemos tachar el texto si la tarea está completada
 
@@ -10,7 +10,11 @@ export const TodoList = ({ todos, onRemoveTodo }) => {
             key={todo.id}
             className="flex gap-2 bg-yellow-200 p-2 rounded-lg"
           >
-            {/* Aqui va el checkbox */}
+            <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => onCompleted(todo.id)}
+            />
             <div className="w-full flex justify-between items-center gap-2">
               <span
                 className="font-medium w-full p-1"
