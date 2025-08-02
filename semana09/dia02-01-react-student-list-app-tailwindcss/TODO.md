@@ -3,11 +3,9 @@
 * [x] Crear proyecto con Vite + React
 * [x] Instalar Tailwind CSS
 * [x] Crear un endpoint con https://mockapi.io/ y probarlo con la extensión rest api (cliente)
-* [ ] Mostrar la lista de estudiantes en una tabla o lista
+* [x] Mostrar la lista de estudiantes en una tabla o lista
 * [ ] Agregar nuevo estudiante con nombre, ciudad
 * [ ] Validar campos del formulario (no vacíos)
 * [ ] Editar información de un estudiante
 * [ ] Eliminar estudiante de la lista
 * [ ] Confirmar antes de eliminar (opcional)
-* [ ] Guardar estudiantes en localStorage al agregar/editar/eliminar
-* [ ] Cargar datos desde localStorage al iniciar la app
