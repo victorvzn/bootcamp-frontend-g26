@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from "react-icons/tb";
 
-import { fetchStudents } from "./services/students"
+import { createStudent, fetchStudents } from "./services/students"
 
 export default function App() {
 
@@ -16,8 +16,7 @@ export default function App() {
   const [form, setForm] = useState(DEFAULT_FORM)
 
   useEffect(() => {
-    fetchStudents()
-      .then(data => setStudents(data))
+    refreshStudents()
   }, []) // Este useEffect se ejecutará en el primer render
 
   const handleChange = (event) => {
@@ -28,10 +27,28 @@ export default function App() {
     setForm({ ...form, [name]: value })
   }
 
-  const handleSubmit = (event) => {
+  const refreshStudents = () => {
+    fetchStudents()
+      .then(data => setStudents(data))
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     
-    console.log('Creando estudiante...')
+    const newStudent = {
+      name: form.name,
+      city: form.city
+    }
+
+    const response = await createStudent(newStudent)
+
+    if (response) {
+      console.log('Student has been created')
+
+      refreshStudents()
+    }
+
+    setForm(DEFAULT_FORM)
   }
 
   return (
@@ -52,6 +69,7 @@ export default function App() {
             placeholder="Ex. Victor Villazón"
             required
             onChange={handleChange}
+            value={form.name}
           />
         </label>
         <label className="flex flex-col gap-2">
@@ -63,6 +81,7 @@ export default function App() {
             placeholder="Ex. Chiclayo"
             required
             onChange={handleChange}
+            value={form.city}
           />
         </label>
         <input
