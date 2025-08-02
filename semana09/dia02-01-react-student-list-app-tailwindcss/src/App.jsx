@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from "react-icons/tb";
 
-import { createStudent, fetchStudents } from "./services/students"
+import { createStudent, fetchStudents, removeStudent } from "./services/students"
 
 export default function App() {
 
@@ -49,6 +49,18 @@ export default function App() {
     }
 
     setForm(DEFAULT_FORM)
+  }
+
+  const handleRemove = async (id) => {
+    console.log('Eliminando student...')
+
+    const response = await removeStudent(id)
+
+    if (response) {
+      console.log('Student has been deleted')
+
+      refreshStudents()
+    }
   }
 
   return (
@@ -111,6 +123,7 @@ export default function App() {
                 </button>
                 <button
                   className="text-red-400 cursor-pointer font-semibold"
+                  onClick={() => handleRemove(student.id)}
                 >
                   <TbTrash size={20} />
                 </button>
