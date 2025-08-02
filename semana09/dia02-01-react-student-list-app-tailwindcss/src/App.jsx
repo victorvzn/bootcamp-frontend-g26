@@ -3,7 +3,7 @@ import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from "react-icons/tb";
 import Swal from 'sweetalert2'
 
-import { createStudent, fetchStudents, removeStudent } from "./services/students"
+import { createStudent, fetchStudents, removeStudent, updateStudent } from "./services/students"
 
 export default function App() {
 
@@ -36,17 +36,43 @@ export default function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     
-    const newStudent = {
-      name: form.name,
-      city: form.city
-    }
+    const isNewStudent = form.id === ''
 
-    const response = await createStudent(newStudent)
+    if (isNewStudent) {
+      const newStudent = {
+        name: form.name,
+        city: form.city
+      }
+  
+      const response = await createStudent(newStudent)
+  
+      if (response) {
+        console.log('Student has been created')
 
-    if (response) {
-      console.log('Student has been created')
+        Swal.fire({
+          title: "Excelent!",
+          text: "Student has been created!",
+          icon: "success"
+        });
+  
+        refreshStudents()
+      }
+    } else {
+      // Vamos a actualizar el estudiante
 
-      refreshStudents()
+      const response = await updateStudent(form)
+
+      if (response) {
+        console.log('Student has been updated')
+
+        Swal.fire({
+          title: "Excelent!",
+          text: "Student has been updated!",
+          icon: "success"
+        });
+
+        refreshStudents()
+      }
     }
 
     setForm(DEFAULT_FORM)
@@ -70,12 +96,22 @@ export default function App() {
         if (response) {
           console.log('Student has been deleted')
 
+          Swal.fire({
+            title: "Excelent!",
+            text: "Student has been deleted!",
+            icon: "success"
+          });
+
           refreshStudents()
         }
       } else {
         console.log('El usuario cancelo la eliminación')
       }
     });
+  }
+
+  const handleUpdate = (student) => {
+    setForm(student)
   }
 
   return (
@@ -133,6 +169,7 @@ export default function App() {
               <div className="flex gap-4">
                 <button
                   className="text-blue-400 cursor-pointer font-semibold"
+                  onClick={() => handleUpdate(student)}
                 >
                   <TbEdit size={20} />
                 </button>
