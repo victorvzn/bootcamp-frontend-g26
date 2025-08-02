@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from "react-icons/tb";
+import Swal from 'sweetalert2'
 
 import { createStudent, fetchStudents, removeStudent } from "./services/students"
 
@@ -54,13 +55,27 @@ export default function App() {
   const handleRemove = async (id) => {
     console.log('Eliminando student...')
 
-    const response = await removeStudent(id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await removeStudent(id)
 
-    if (response) {
-      console.log('Student has been deleted')
+        if (response) {
+          console.log('Student has been deleted')
 
-      refreshStudents()
-    }
+          refreshStudents()
+        }
+      } else {
+        console.log('El usuario cancelo la eliminación')
+      }
+    });
   }
 
   return (
