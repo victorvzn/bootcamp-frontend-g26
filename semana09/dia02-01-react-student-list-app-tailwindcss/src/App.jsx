@@ -11,7 +11,7 @@ export default function App() {
   }, []) // Este useEffect se ejecutará en el primer render
 
   return (
-    <main className="w-96 mx-auto rounded-lg mt-6 p-4">
+    <main className="w-[420px] mx-auto rounded-lg mt-6 p-2">
 
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
     
