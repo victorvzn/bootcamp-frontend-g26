@@ -44,25 +44,30 @@ export default function App() {
       </form>
 
       <h1 className="text-xl font-semibold text-center mb-3 my-8">Student list</h1>
+      {/* TODO: Mostrar la lista de estudiantes en una tabla o lista */}
 
       <section className="student__list flex flex-col gap-2 mt-2">
-        <article className="student__row flex justify-between items-center bg-slate-100 p-2 rounded-lg border border-slate-200">
-          <div>Avatar</div>
-          <div className="text-left font-semibold">NAME</div>
-          <div className="text-left">CITY</div>
-          <div className="flex gap-4">
-            <button
-              className="text-blue-400 cursor-pointer font-semibold"
-            >
-              EDIT
-            </button>
-            <button
-              className="text-red-400 cursor-pointer font-semibold"
-            >
-              DELETE
-            </button>
-          </div>
-        </article>
+        {students.map(student => {
+          return (
+            <article key={student.id} className="student__row flex justify-between items-center bg-slate-100 p-2 rounded-lg border border-slate-200">
+              <div>Avatar</div>
+              <div className="text-left font-semibold">{student.name}</div>
+              <div className="text-left">{student.city}</div>
+              <div className="flex gap-4">
+                <button
+                  className="text-blue-400 cursor-pointer font-semibold"
+                >
+                  EDIT
+                </button>
+                <button
+                  className="text-red-400 cursor-pointer font-semibold"
+                >
+                  DELETE
+                </button>
+              </div>
+            </article>
+          )
+        })}
       </section>
 
       <pre  className="mt-8 border border-slate-300 p-3 rounded-lg bg-slate-50 overflow-y-auto">{JSON.stringify(students, null, 2)}</pre>
