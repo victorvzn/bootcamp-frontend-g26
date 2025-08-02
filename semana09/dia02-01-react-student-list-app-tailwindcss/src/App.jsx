@@ -5,19 +5,44 @@ import { TbEdit, TbTrash } from "react-icons/tb";
 import { fetchStudents } from "./services/students"
 
 export default function App() {
+
+  const DEFAULT_FORM = {
+    id: '',
+    name: '',
+    city: ''
+  }
+
   const [students, setStudents] = useState([])
+  const [form, setForm] = useState(DEFAULT_FORM)
 
   useEffect(() => {
     fetchStudents()
       .then(data => setStudents(data))
   }, []) // Este useEffect se ejecutará en el primer render
 
+  const handleChange = (event) => {
+    console.log({ target: event.target })
+
+    const { name, value } = event.target
+
+    setForm({ ...form, [name]: value })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    console.log('Creando estudiante...')
+  }
+
   return (
     <main className="w-[420px] mx-auto rounded-lg mt-6 p-2">
 
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
     
-      <form className="flex flex-col gap-3 bg-slate-300 p-3 rounded-lg shadow-lg">
+      <form
+        className="flex flex-col gap-3 bg-slate-300 p-3 rounded-lg shadow-lg"
+        onSubmit={handleSubmit}      
+      >
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-700">Name</span>
           <input
@@ -26,6 +51,7 @@ export default function App() {
             name="name"
             placeholder="Ex. Victor Villazón"
             required
+            onChange={handleChange}
           />
         </label>
         <label className="flex flex-col gap-2">
@@ -36,13 +62,16 @@ export default function App() {
             name="city"
             placeholder="Ex. Chiclayo"
             required
+            onChange={handleChange}
           />
         </label>
         <input
           className=" bg-blue-800 text-white hover:bg-blue-900 font-medium rounded-lg text-sm w-full py-2.5 cursor-pointer"
-          type="button"
+          type="submit"
           value="Save student"
         />
+
+        form state: {JSON.stringify(form)}
       </form>
 
       <h1 className="text-xl font-semibold text-center mb-3 my-8">Student list</h1>
