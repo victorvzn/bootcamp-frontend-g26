@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import Avatar from 'boring-avatars'
+import { TbEdit, TbTrash } from "react-icons/tb";
 
 import { fetchStudents } from "./services/students"
 
@@ -50,19 +52,19 @@ export default function App() {
         {students.map(student => {
           return (
             <article key={student.id} className="student__row flex justify-between items-center bg-slate-100 p-2 rounded-lg border border-slate-200">
-              <div>Avatar</div>
+              <Avatar size={48} variant="beam" name={student.name} />
               <div className="text-left font-semibold">{student.name}</div>
               <div className="text-left">{student.city}</div>
               <div className="flex gap-4">
                 <button
                   className="text-blue-400 cursor-pointer font-semibold"
                 >
-                  EDIT
+                  <TbEdit size={20} />
                 </button>
                 <button
                   className="text-red-400 cursor-pointer font-semibold"
                 >
-                  DELETE
+                  <TbTrash size={20} />
                 </button>
               </div>
             </article>
