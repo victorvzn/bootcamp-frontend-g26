@@ -1,6 +1,17 @@
 // TODO: 01 - Renderizar el listado de peliculas en la tabla con los datos que vienen desde localhost:3000/movies
 
+import { useEffect } from "react"
+import { fetchMovies } from "./services/movies"
+import { useState } from "react"
+
 const App = () => {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    fetchMovies()
+      .then(data => setMovies(data))
+  }, [])
+
   return (
     <>
       <header className="container mx-auto border-b border-zinc-200 h-16 flex items-center px-4">
@@ -33,44 +44,55 @@ const App = () => {
               </tr>
             </thead>
             <tbody>
-              <tr
-                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
-              >
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  1
-                </th>
-                <td className="px-6 py-4">
-                  <img src='https://placehold.co/100x150/orange/white' />
-                </td>
-                <td className="px-6 py-4 flex flex-col gap-2">
-                  <strong>NAME</strong>
-                  <div className="text-xs">
-                    <strong>Estreno:</strong> ???
-                  </div>
-                  <div className="text-xs">
-                    <strong>Genero:</strong> ???
-                  </div>
-                  <div className="text-xs">
-                    <strong>Resumen:</strong> ???
-                  </div>
-                </td>
-                <td className="px-6 py-4 ">
-                  <div className="flex gap-3 ">
-                    <button
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="font-medium text-red-600 dark:text-blue-500 hover:underline"
-                    >
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
+              {movies.map(movie => {
+                return (
+                  <tr
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
+                    key={movie.id}
+                  >
+                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      {movie.id}
+                    </th>
+                    <td className="px-6 py-4">
+                      <img
+                        src={movie.image}
+                        width={100}
+                        height={250}
+                      />
+                    </td>
+                    <td className="px-6 py-4 flex flex-col gap-2">
+                      <strong>{movie.name}</strong>
+                      <div className="text-xs">
+                        <strong>Estreno:</strong> {movie.release}
+                      </div>
+                      <div className="text-xs">
+                        <strong>Genero:</strong> {movie.genreId}
+                      </div>
+                      <div className="text-xs">
+                        <strong>Resumen:</strong> {movie.resumen}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 ">
+                      <div className="flex gap-3 ">
+                        <button
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="font-medium text-red-600 dark:text-blue-500 hover:underline"
+                        >
+                          Eliminar
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
+
+          <pre className="mt-4 bg-slate-200 p-2">{JSON.stringify(movies, null, 2)}</pre>
         </div>
 
         <form className="p-4 w-96">
