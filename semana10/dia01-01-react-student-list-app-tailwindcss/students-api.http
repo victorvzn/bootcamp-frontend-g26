@@ -1,0 +1,26 @@
+### Get all students
+GET https://68865f31f52d34140f6c1285.mockapi.io/api/v1/students
+
+### Create a student
+POST https://68865f31f52d34140f6c1285.mockapi.io/api/v1/students
+Content-Type: application/json
+
+{
+  "name": "Luis",
+  "city": "Piura"
+}
+
+### Get a student
+GET https://68865f31f52d34140f6c1285.mockapi.io/api/v1/students/3
+
+### Update a student
+PUT https://68865f31f52d34140f6c1285.mockapi.io/api/v1/students/3
+Content-Type: application/json
+
+{
+  "name": "Jose-modificado",
+  "city": "Chiclayo-modificado"
+}
+
+### Delete a student
+DELETE https://68865f31f52d34140f6c1285.mockapi.io/api/v1/students/3
