@@ -73,6 +73,62 @@
       "release": "2023-06-30",
       "genreId": 4,
       "resumen": "Resumen de prueba"
+    },
+    {
+      "name": "mi pelicula",
+      "image": "mi-enlace",
+      "release": "2025-08-20",
+      "genreId": "3",
+      "resumen": "resumen x",
+      "id": 8
+    },
+    {
+      "name": "otr apelicula",
+      "image": "asdasd",
+      "release": "2025-08-15",
+      "genreId": "2",
+      "resumen": "sadasd",
+      "id": 9
+    },
+    {
+      "name": "as",
+      "image": "sadas",
+      "release": "2025-08-27",
+      "genreId": "3",
+      "resumen": "asdasd",
+      "id": 10
+    },
+    {
+      "name": "sasasa",
+      "image": "sasasa",
+      "release": "2025-08-05",
+      "genreId": "3",
+      "resumen": "assa",
+      "id": 11
+    },
+    {
+      "name": "otr2",
+      "image": "assaas",
+      "release": "2025-08-29",
+      "genreId": "2",
+      "resumen": "asdsad",
+      "id": 12
+    },
+    {
+      "name": "PRUEBA",
+      "image": "PRUEBA123",
+      "release": "2025-08-20",
+      "genreId": "3",
+      "resumen": "SADSADASD",
+      "id": 13
+    },
+    {
+      "name": "OTR PELI",
+      "image": "SADSADSA",
+      "release": "2025-08-14",
+      "genreId": "2",
+      "resumen": "SADASD",
+      "id": 14
     }
   ]
 }

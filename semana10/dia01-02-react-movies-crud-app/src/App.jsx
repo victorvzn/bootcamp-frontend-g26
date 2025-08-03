@@ -1,7 +1,7 @@
 // TODO: 01 - Renderizar el listado de peliculas en la tabla con los datos que vienen desde localhost:3000/movies
 
 import { useEffect } from "react"
-import { fetchMovies } from "./services/movies"
+import { createMovie, fetchMovies } from "./services/movies"
 import { useState } from "react"
 
 const App = () => {
@@ -27,6 +27,31 @@ const App = () => {
     const { name, value } = event.target // El elemento seleccionado (Ej. input, select, checkbox, textarea...)
 
     setForm({ ...form, [name]: value })
+  }
+
+  const handleSave = async (event) => {
+    event.preventDefault();
+    
+    console.log('saving....')
+
+    const newMovie = {
+      name: form.name,
+      image: form.image,
+      release: form.release,
+      genreId: form.genreId,
+      resumen: form.resumen,
+    }
+
+    const response = await createMovie(newMovie)
+
+    if (response) {
+      console.log('Movie has been created succesfully')
+
+      fetchMovies()
+        .then(data => setMovies(data))
+    }
+
+    setForm(INITIAL_FORM)
   }
 
   return (
@@ -112,7 +137,7 @@ const App = () => {
           <pre className="mt-4 bg-slate-200 p-2">{JSON.stringify(movies, null, 2)}</pre>
         </div>
 
-        <form className="p-4 w-96 flex flex-col gap-2">
+        <form className="p-4 w-96 flex flex-col gap-2" onSubmit={handleSave}>
           <h3 className="py-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
             Nueva película
           </h3>
@@ -125,6 +150,7 @@ const App = () => {
               placeholder="Mi película"
               required
               onChange={handleChange}
+              value={form.name}
             />
             <input
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -133,6 +159,7 @@ const App = () => {
               placeholder="https://..."
               required
               onChange={handleChange}
+              value={form.image}
             />
             <input
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -141,6 +168,7 @@ const App = () => {
               placeholder="Estreno"
               required
               onChange={handleChange}
+              value={form.release}
             />
             
             <select
@@ -148,6 +176,7 @@ const App = () => {
               name="genreId"
               required
               onChange={handleChange}
+              value={form.genreId}
             >
               <option value="">Selecciona un genero...</option>
               <option value="1">Comedia</option>
@@ -162,6 +191,7 @@ const App = () => {
               name="resumen"
               placeholder="Resumen de mi película..."
               onChange={handleChange}
+              value={form.resumen}
             />
 
             <input
