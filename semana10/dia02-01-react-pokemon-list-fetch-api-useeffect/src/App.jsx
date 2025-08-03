@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 const App = () => {
   const [pokemons, setPokemons] = useState([])
+  const [page, setPage] = useState(1)
 
   // Genera un llamado infinito al api de pokemons por que actualizamos el estado pokemons
   // fetch('https://pokeapi.co/api/v2/pokemon') // Devuelve una promise
@@ -14,14 +15,23 @@ const App = () => {
   // useEffect(fn, [dependencies])
   // Un arreglo en las dependencias significa que se ejecuta solo en el primer render
 
+  const fetchPokemons = (page = 1) => {
+    const limit = 9
+    const offset = (page - 1) * limit
+
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+
+    fetch(url) // Devuelve una promise
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setPokemons(data.results)
+      })
+  }
+
   useEffect(() => {
-      fetch('https://pokeapi.co/api/v2/pokemon') // Devuelve una promise
-        .then(response => response.json())
-        .then(data => {
-          console.log(data)
-          setPokemons(data.results)
-        })
-  }, [])
+    fetchPokemons(page)
+  }, [page])
 
   return (
     <>
@@ -35,6 +45,9 @@ const App = () => {
             )
           })}
         </ul> 
+
+        <button onClick={() => setPage(page + 1)}>Next</button>
+        <span>{page}</span>
       </section>
 
       <pre className="bg-slate-200 p-4">{JSON.stringify(pokemons, null, 2)}</pre>
