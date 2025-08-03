@@ -1,6 +1,6 @@
 const JSONSERVER_API_URL = 'http://localhost:3000'
 
-const API_RESOURCE_MOVIES = `${JSONSERVER_API_URL}/movies`
+const API_RESOURCE_MOVIES = `${JSONSERVER_API_URL}/movies?_expand=genre`
 
 export const fetchMovies = async () => {
   const response = await fetch(API_RESOURCE_MOVIES) // GET 

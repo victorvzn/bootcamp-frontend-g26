@@ -1,4 +1,7 @@
-// TODO: 01 - Renderizar el listado de peliculas en la tabla con los datos que vienen desde localhost:3000/movies
+// DONE: 01 - Renderizar el listado de peliculas en la tabla con los datos que vienen desde localhost:3000/movies
+
+// TODO: 02 - Eliminar la película usando el botón 'Eliminar' de cada fila
+// TODO: 03 - Guardar la película cuando estamos editando
 
 import { useEffect } from "react"
 import { createMovie, fetchMovies } from "./services/movies"
@@ -108,7 +111,7 @@ const App = () => {
                         <strong>Estreno:</strong> {movie.release}
                       </div>
                       <div className="text-xs">
-                        <strong>Genero:</strong> {movie.genreId}
+                        <strong>Genero:</strong> {movie.genre.name}
                       </div>
                       <div className="text-xs">
                         <strong>Resumen:</strong> {movie.resumen}
