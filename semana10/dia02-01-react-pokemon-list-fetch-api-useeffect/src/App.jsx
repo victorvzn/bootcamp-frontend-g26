@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+// TODO: Cargar los datos de la poke.api, renderizar nombre e imagen y añadir paginación usando el hook useEffect. Opcional: añadir estilos con tailwind.
+
 const App = () => {
   const [pokemons, setPokemons] = useState([])
   const [page, setPage] = useState(1)
@@ -46,8 +48,13 @@ const App = () => {
           })}
         </ul> 
 
-        <button onClick={() => setPage(page + 1)}>Next</button>
-        <span>{page}</span>
+        <div>
+          <button>First</button>
+          <button>Prev</button>
+          <span>{page}</span>
+          <button onClick={() => setPage(page + 1)}>Next</button>
+          <button>Last</button>
+        </div>
       </section>
 
       <pre className="bg-slate-200 p-4">{JSON.stringify(pokemons, null, 2)}</pre>
