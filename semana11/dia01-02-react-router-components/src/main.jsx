@@ -5,6 +5,9 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 
 import HomePage from './pages/HomePage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import RegisterPage from './pages/RegisterPage.jsx'
+
+// TODO: 01 - Renderizar en la ruta home los personajes del api de Dragonball (https://web.dragonball-api.com/). El resultado debe mostrarse en una grilla de 3x3
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -12,6 +15,7 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/login' element={<LoginPage />} />
+      <Route path='/register' element={<RegisterPage />} />
     </Routes>
   
   </BrowserRouter>

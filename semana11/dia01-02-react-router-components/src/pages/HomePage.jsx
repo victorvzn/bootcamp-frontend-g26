@@ -1,8 +1,37 @@
+import { useEffect } from "react"
+import { useState } from "react"
+import { fetchCharacters } from "../services/characters"
+
 const HomePage = () => {
+  const [characters, setCharacters] = useState([])
+
+  useEffect(() => {
+    fetchCharacters()
+      .then(results => setCharacters(results.items))
+  }, [])
+
   return (
-    <>
-      <h1 className="text-3xl font-bold text-center">Home Page</h1>
-    </>
+    <main className="m-4">
+      <h1 className="text-3xl font-bold text-center">Home Page - Characters</h1>
+
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        {characters.map(character => {
+          return (
+            <article
+              className="bg-yellow-300 rounded-lg p-3 flex flex-col justify-evenly items-center"
+              key={character.id}
+            >
+              <img src={character.image} width={100} />
+              <div className="font-bold text-2xl">#{character.id}</div>
+              <div className="font-bold text-3xl">{character.name}</div>
+              <div className="font-bold bg-orange-300 text-slate-800 p-2 rounded-full">{character.race}</div>
+            </article>
+          )
+        })}
+      </section>
+
+      <pre className="border p-2 bg-slate-100 mt-4">{JSON.stringify(characters, null, 2)}</pre>
+    </main>
   )
 }
 
