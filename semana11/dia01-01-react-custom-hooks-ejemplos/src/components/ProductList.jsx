@@ -1,27 +1,4 @@
-import { useEffect, useState } from "react"
-
-// TODO: Implementar el custom hooks que maneje los datos de listado de producto
-const useProducts = () => {
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-
-    fetch('https://dummyjson.com/products/?delay=1500')
-      .then(response => response.json())
-      .then(data => setProducts(data.products))
-      .catch(error => console.log(error))
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [])
-
-  return {
-    products,
-    loading
-  }
-}
+import { useProducts } from "../hooks/useProducts"
 
 const ProductList = () => {
   const { products, loading } = useProducts()
