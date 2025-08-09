@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { fetchCharacters } from "../services/characters"
+import { Link } from "react-router"
 
 const HomePage = () => {
   const [characters, setCharacters] = useState([])
@@ -17,15 +18,16 @@ const HomePage = () => {
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
         {characters.map(character => {
           return (
-            <article
-              className="bg-yellow-300 rounded-lg p-3 flex flex-col justify-evenly items-center"
+            <Link
               key={character.id}
+              to={`/characters/${character.id}`}
+              className="bg-yellow-300 rounded-lg p-3 flex flex-col justify-evenly items-center"
             >
               <img src={character.image} width={100} />
               <div className="font-bold text-2xl">#{character.id}</div>
               <div className="font-bold text-3xl">{character.name}</div>
-              <div className="font-bold bg-orange-300 text-slate-800 p-2 rounded-full">{character.race}</div>
-            </article>
+              <div className="font-bold bg-orange-300 text-slate-800 p-2 rounded-lg uppercase">{character.race}</div>
+            </Link>
           )
         })}
       </section>
