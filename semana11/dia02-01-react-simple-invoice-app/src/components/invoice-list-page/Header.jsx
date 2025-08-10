@@ -7,14 +7,16 @@ const Header = ({ title, invoices = 0 }) => {
         <h1 className="text-4xl font-extrabold">
           {title}
         </h1>
-        <span>There are <strong>{invoices}</strong> total invoices</span>
+        {Boolean(invoices) && <span>There are <strong>{invoices}</strong> total invoices</span>}
       </div>
 
-      <Link to='/invoices/new'>
-        <button className="bg-indigo-400 hover:bg-indigo-500 duration-300 rounded-full px-5 py-4 font-semibold min-w-[100px] text-white cursor-pointer">
-          New invoice
-        </button>
-      </Link>
+      {Boolean(invoices) &&
+        <Link to='/invoices/new'>
+          <button className="bg-indigo-400 hover:bg-indigo-500 duration-300 rounded-full px-5 py-4 font-semibold min-w-[100px] text-white cursor-pointer">
+            New invoice
+          </button>
+        </Link>
+      }
     </header>
   )
 }
