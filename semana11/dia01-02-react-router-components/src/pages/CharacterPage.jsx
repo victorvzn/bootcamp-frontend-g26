@@ -36,7 +36,7 @@ const CharacterPage = () => {
         <img src={character?.originPlanet.image} width={100} />
       </section>
 
-      <pre className="border p-2 bg-slate-100 mt-4">{JSON.stringify(character, null, 2)}</pre>
+      <pre className="border p-2 bg-slate-100 mt-4 overflow-hidden">{JSON.stringify(character, null, 2)}</pre>
     </main>
   )
 }

@@ -32,7 +32,7 @@ const HomePage = () => {
         })}
       </section>
 
-      <pre className="border p-2 bg-slate-100 mt-4">{JSON.stringify(characters, null, 2)}</pre>
+      <pre className="border p-2 bg-slate-100 mt-4 overflow-x-auto">{JSON.stringify(characters, null, 2)}</pre>
     </main>
   )
 }
