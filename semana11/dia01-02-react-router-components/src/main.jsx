@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'
 import CharacterPage from './pages/CharacterPage.jsx'
 import LayoutBase from './layouts/LayoutBase.jsx'
+import LayoutAuth from './layouts/LayoutAuth.jsx'
 
 // TODO: 01 - Renderizar en la ruta home los personajes del api de Dragonball (https://web.dragonball-api.com/). El resultado debe mostrarse en una grilla de 3x3
 
@@ -20,8 +21,10 @@ createRoot(document.getElementById('root')).render(
         <Route path='/characters/:id' element={<CharacterPage />} />
       </Route>
 
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/register' element={<RegisterPage />} />
+      <Route element={<LayoutAuth />}>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Route>
     </Routes>
   
   </BrowserRouter>
