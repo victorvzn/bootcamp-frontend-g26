@@ -5,6 +5,9 @@ import { BrowserRouter, Route, Routes }  from 'react-router'
 
 import InvoiceList from './pages/InvoiceList'
 import LayoutBase from './layouts/LayoutBase'
+import InvoiceNew from './pages/InvoiceNew'
+import InvoiceView from './pages/InvoiceView'
+import InvoiceEdit from './pages/InvoiceEdit'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -15,6 +18,9 @@ createRoot(document.getElementById('root')).render(
 
         <Route path='invoices'>
           <Route path='list' element={<InvoiceList />} />
+          <Route path='new' element={<InvoiceNew />} />
+          <Route path=':id' element={<InvoiceView />} />
+          <Route path=':id/edit' element={<InvoiceEdit />} />
         </Route>
       </Route>
 
