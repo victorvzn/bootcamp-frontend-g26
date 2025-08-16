@@ -1,17 +1,21 @@
 import { Link, Outlet } from "react-router"
 
-const LayoutBase = () => {
+const LayoutAuth = () => {
   return (
     <>
-      <header className="py-4 px-6 bg-blue-300">
+      <header className="py-4 px-6 bg-amber-300">
         <div className="container mx-auto flex justify-between">
           <Link to='/'>
-            <h1 className="font-bold">Invoice app - LOGIN</h1>
+            <h1 className="font-bold">Invoice app - ADMIN</h1>
           </Link>
+
+          <div className="font-medium">
+            Other links
+          </div>
         </div>
 
         <div className="mt-3 flex gap-3">
-          <Link to='/register'>Register</Link>
+          <Link to='/invoices/list'>Invoices</Link>
         </div>
       </header>
 
@@ -24,4 +28,4 @@ const LayoutBase = () => {
   )
 }
 
-export default LayoutBase
+export default LayoutAuth
