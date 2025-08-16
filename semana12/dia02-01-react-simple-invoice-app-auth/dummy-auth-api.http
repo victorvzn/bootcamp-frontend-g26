@@ -1,0 +1,15 @@
+### Login a Dummyjson.com
+POST https://dummyjson.com/auth/login
+Content-Type: application/json
+
+{
+  "username": "emilys",
+  "password": "emilyspass"
+}
+
+### GET Products (PUBLIC)
+GET https://dummyjson.com/products
+
+### Get Products (PRIVATE)
+GET https://dummyjson.com/auth/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3NTUzNTUwOTYsImV4cCI6MTc1NTM1ODY5Nn0.JW4PueRQHbuFwqYkY0x6z5jNDY1HBwHW3kDWKibeB6A
