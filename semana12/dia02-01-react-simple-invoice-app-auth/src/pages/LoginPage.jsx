@@ -1,6 +1,12 @@
 import { useState } from "react"
+import { useAuth } from "../hooks/useAuth"
+import { useNavigate } from "react-router"
 
 const LoginPage = () => {
+  const { setAuth } = useAuth()
+
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     username: '',
     password: ''
@@ -29,6 +35,10 @@ const LoginPage = () => {
       const data = await response.json()
 
       console.log(data)
+
+      setAuth(data)
+
+      navigate('/invoices/list')
     }
   }
 

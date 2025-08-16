@@ -1,6 +1,19 @@
 import { Link, Outlet } from "react-router"
+import { useAuth } from "../hooks/useAuth"
+import { useNavigate } from "react-router"
 
 const LayoutAuth = () => {
+  const navigate = useNavigate()
+
+  const { logout } = useAuth()
+
+  const handleLogout = () => {
+    // borrar el LS, con la funcion logout del custom hook useAuth
+    logout()
+    // Redirigir al usuario al login
+    navigate('/')
+  }
+
   return (
     <>
       <header className="py-4 px-6 bg-amber-300">
@@ -10,7 +23,12 @@ const LayoutAuth = () => {
           </Link>
 
           <div className="font-medium">
-            Other links
+            <button
+              className="text-red-500 font-medium"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </div>
         </div>
 
