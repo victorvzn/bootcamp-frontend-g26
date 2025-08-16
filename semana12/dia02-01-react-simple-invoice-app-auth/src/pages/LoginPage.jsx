@@ -1,4 +1,37 @@
+import { useState } from "react"
+
 const LoginPage = () => {
+  const [form, setForm] = useState({
+    username: '',
+    password: ''
+  })
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setForm({ ...form, [name]: value })
+  }
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    }
+    
+    const response = await fetch('https://dummyjson.com/auth/login', options)
+
+    if (response.ok) {
+      const data = await response.json()
+
+      console.log(data)
+    }
+  }
+
   return (
     <main className="w-[400px] m-auto flex flex-col gap-5">
       <div className="bg-slate-600 p-8 rounded-lg flex flex-col gap-6">
@@ -6,7 +39,7 @@ const LoginPage = () => {
 
         <p className="text-white font-light text-center">Ingresa un nombre de usuario y password</p>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <label className="text-white flex flex-col gap-2 mb-4">
             <span>Username</span>
             <input
@@ -14,6 +47,8 @@ const LoginPage = () => {
               type="text"
               name="username"
               placeholder="jhondo@login.com"
+              onChange={handleChange}
+              value={form.username}
             />
           </label>
           <label className="text-white flex flex-col gap-2 mb-4">
@@ -23,6 +58,8 @@ const LoginPage = () => {
               type="password"
               name="password"
               placeholder="***************"
+              onChange={handleChange}
+              value={form.password}
             />
           </label>
           <button
@@ -31,6 +68,8 @@ const LoginPage = () => {
           >
             Login
           </button>
+
+          <pre>{JSON.stringify(form, null, 2)}</pre>
         </form>
       </div>
     </main>
