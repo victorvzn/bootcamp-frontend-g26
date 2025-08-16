@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 const LayoutAuth = () => {
   const navigate = useNavigate()
 
-  const { logout } = useAuth()
+  const { logout, user } = useAuth()
 
   const handleLogout = () => {
     // borrar el LS, con la funcion logout del custom hook useAuth
@@ -22,7 +22,8 @@ const LayoutAuth = () => {
             <h1 className="font-bold">Invoice app - ADMIN</h1>
           </Link>
 
-          <div className="font-medium">
+          <div className="font-medium flex gap-2">
+            <span>Bienvenid@ {user?.username}</span>
             <button
               className="text-red-500 font-medium"
               onClick={handleLogout}
@@ -34,6 +35,7 @@ const LayoutAuth = () => {
 
         <div className="mt-3 flex gap-3">
           <Link to='/invoices/list'>Invoices</Link>
+          <Link to='/products'>Products</Link>
         </div>
       </header>
 

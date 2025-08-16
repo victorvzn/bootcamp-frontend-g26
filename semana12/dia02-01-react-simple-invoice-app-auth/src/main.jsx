@@ -12,6 +12,8 @@ import LayoutBase from './layouts/LayoutBase'
 import LayoutAuth from './layouts/LayoutAuth'
 
 import LoginPage from './pages/LoginPage'
+import ProductListPage from './pages/ProductListPage'
+import AuthValidation from './components/AuthValidation'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -21,13 +23,19 @@ createRoot(document.getElementById('root')).render(
         <Route path='/' element={<LoginPage />} />
       </Route>
 
-      <Route element={<LayoutAuth />}>
-        <Route path='invoices'>
-          <Route path='list' element={<InvoiceList />} />
-          <Route path='new' element={<InvoiceNew />} />
-          <Route path=':id' element={<InvoiceView />} />
-          <Route path=':id/edit' element={<InvoiceEdit />} />
+      <Route element={<AuthValidation />}>
+
+        <Route element={<LayoutAuth />}>
+          <Route path='products' element={<ProductListPage />} />
+
+          <Route path='invoices'>
+            <Route path='list' element={<InvoiceList />} />
+            <Route path='new' element={<InvoiceNew />} />
+            <Route path=':id' element={<InvoiceView />} />
+            <Route path=':id/edit' element={<InvoiceEdit />} />
+          </Route>
         </Route>
+
       </Route>
 
     </Routes>
