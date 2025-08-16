@@ -9,10 +9,6 @@ const LayoutBase = () => {
             <h1 className="font-bold">Invoice app - LOGIN</h1>
           </Link>
         </div>
-
-        <div className="mt-3 flex gap-3">
-          <Link to='/register'>Register</Link>
-        </div>
       </header>
 
       <main className="my-6">
