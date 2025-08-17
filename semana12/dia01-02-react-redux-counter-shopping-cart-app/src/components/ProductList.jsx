@@ -1,7 +1,12 @@
 // TODO: Listar los productos en una grilla de 1 columna que contengan el title, thumbnail(imagen) y un boton con el texto "Add to cart"
 // Usar el endpoint https://dummyjson.com/products
 
+import { useDispatch } from "react-redux"
+import { addToCart } from "../store/cart"
+
 const ProductList = ({ products }) => {
+  const dispatch = useDispatch()
+
   return (
     <section className="flex flex-col p-4">
       <h3 className="text-2xl mb-4">Product List</h3>
@@ -17,6 +22,7 @@ const ProductList = ({ products }) => {
               <p className="text-center font-bold">{product.title}</p>
               <button
                 className="bg-blue-400 p-2 min-w-36 rounded-lg cursor-pointer text-white font-bold"
+                onClick={() => dispatch(addToCart(product))}
               >
                 Add to cart
               </button>
