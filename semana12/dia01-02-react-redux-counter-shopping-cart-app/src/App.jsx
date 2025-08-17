@@ -1,8 +1,17 @@
 import Counter from './components/Counter'
+import ProductList from './components/ProductList'
 
 const App = () => {
   return (
-    <Counter />
+    <main>
+      <section>
+        <ProductList />
+
+        {/* CARRITO DE COMPRAS AQUÍ */}
+      </section>
+
+      <Counter />
+    </main>
   )
 }
 
