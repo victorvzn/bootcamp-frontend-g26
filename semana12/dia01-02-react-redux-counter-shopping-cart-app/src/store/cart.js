@@ -10,6 +10,34 @@ export const CartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       console.log('Añadiendo al carrito', action)
+      const newProduct = action.payload
+
+      const productInCartIndex = state.findIndex(
+        product => product.id === newProduct.id
+      )
+
+      // Validar cuando el producto existe en el carrito de compras
+      if (productInCartIndex >= 0) {
+        return state.map(product => {
+          if (product.id === newProduct.id) {
+            return {
+              ...product,
+              qty: product.qty + 1
+            }
+          }
+
+          return product
+        })
+      }
+
+      // Entra aquí cuando el producto es nuevo en el carrito de compras
+      return [
+        ...state,
+        {
+          ...newProduct,
+          qty: 1
+        }
+      ]
     },
     removeToCart: (state, action) => {
       // TODO: remover el producto del carrito de compras

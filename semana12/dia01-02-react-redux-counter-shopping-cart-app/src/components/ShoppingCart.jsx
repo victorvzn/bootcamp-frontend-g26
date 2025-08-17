@@ -24,7 +24,7 @@ const ShoppingCart = () => {
             key={product.id}
           >
             <span>{product.title}</span>
-            <span>S/ 0.00 (qty: 1)</span>
+            <span>S/ {product.price} (qty: {product.qty})</span>
             <button
               className="bg-red-400 text-white py-1 rounded-lg cursor-pointer w-full"
             >
