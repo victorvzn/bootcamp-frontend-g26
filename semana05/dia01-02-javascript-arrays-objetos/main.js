@@ -129,10 +129,42 @@ console.log(languages)
 
 // Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original. Es recomendable toSorted(Investiguen)
 
-const ordenandoLanguages = [...languages].sort() // ORDENA ASC. Mutando el arreglo original para evitar eso usamos el spread operator
+// SORT: Ordenando cadenas
+const ordenandoLanguages = [...languages].sort() // ORDENA ASC. Mutando el arreglo original para evitar eso usamos el spread operator(...)
 
 console.log(ordenandoLanguages)
 console.log(languages)
+
+const algunosNombres = ['mariana', 'victor', 'samy', 'leo', 'mate'];
+
+console.log(
+  [...algunosNombres].sort(
+    function(a, b) {
+      if (a > b) return -1
+      if (a < b) return 1
+      return 0
+    }
+  )
+);
+
+console.log(
+  [...algunosNombres].sort(
+    function(a, b) {
+      return a.localeCompare(b) // Ordenamiento ASCendente
+    }
+  )
+);
+
+
+console.log(
+  [...algunosNombres].sort(
+    function(a, b) {
+      return b.localeCompare(a) // Ordenamiento DESCendente
+    }
+  )
+);
+
+// SORT: Ordenando números
 
 const numeros2 = [11, 2, 1, 22, 86, 99, 200]
 
